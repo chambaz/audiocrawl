@@ -1,11 +1,4 @@
 @import './library/settings.css';
-@import './library/mixins.css';
-
 @import 'normalize.css';
-
 @import './base/elements.css';
-@import './base/icons.css';
-@import './base/global.css';
-@import './base/fonts.css';
-
 @import '../components/**/*.css';
