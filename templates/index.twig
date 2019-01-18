@@ -1,0 +1,53 @@
+{% extends '_layout' %}
+
+{% block content %}
+
+  <main class="layout">
+    <aside class="layout__sidebar">
+      <h1 class="layout__sidebar-logo">
+        <img 
+          class="layout__sidebar-logo-img" 
+          src="/img/audiocrawl.svg" />
+        AudioCrawl
+      </h1>
+
+      <nav class="layout__sidebar-nav nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="#">
+              Browse
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#">
+              About
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#">
+              Newsletter
+            </a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#">
+              <img class="nav__social-img" src="/img/twitter.svg" /> Twitter
+            </a>
+          </li>
+        </ul>
+        <a class="nav__submit button" href="#">Submit</a>
+        <p class="nav__credit">
+          Made with ❤️ at
+          <a 
+            class="nav__credit-link" 
+            href="https://www.digitalsurgeons.com">
+            Digital Surgeons
+          </a>
+        </p>
+      </nav>
+    </aside>
+    <div class="layout__content">
+
+    </div>
+  </main>
+
+{% endblock %}

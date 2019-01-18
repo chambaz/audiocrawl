@@ -1,0 +1,9 @@
+.button {
+  background-image: linear-gradient(
+    180deg,
+    rgb(61, 139, 228) 0%,
+    rgb(1, 192, 243) 71%,
+    rgb(189, 241, 255) 100%
+  );
+  box-shadow: 0px 21px 49px 0px rgba(6, 74, 152, 0.45);
+}
