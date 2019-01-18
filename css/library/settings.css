@@ -18,7 +18,7 @@
   --blue-white: #f1f5f8;
 
   /* Font Colors */
-  --base-background-color: var(--white);
+  --base-background-color: var(--blue-white);
   --base-font-color: var(--gray-dark);
   --primary-color: var(--blue-dark);
 }
