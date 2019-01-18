@@ -57,14 +57,7 @@ a:link,
 a:visited,
 a:active,
 a:hover {
-  border: solid 1px transparent;
-  color: var(--primary-color);
   text-decoration: none;
-  transition: 0.3s;
-}
-
-a:hover {
-  border-color: var(--primary-color);
 }
 
 button {

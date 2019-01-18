@@ -7,7 +7,19 @@
 .layout__sidebar {
   background: var(--white);
   box-shadow: 0px 0px 54px 0px rgba(0, 0, 0, 0.22);
-  padding: 65px 95px;
+  display: flex;
+  flex-direction: column;
+  padding: 65px;
   text-align: center;
   width: 360px;
+}
+
+.layout__sidebar-logo,
+.layout__sidebar-nav {
+  margin: 0 30px;
+}
+
+.layout__sidebar-credit {
+  font-size: 13px;
+  margin-top: auto;
 }

@@ -1,2 +1,16 @@
 .nav {
+  margin: 20px 0;
+}
+
+.nav__list {
+  margin-bottom: 40px;
+}
+
+.nav__link {
+  border-bottom: solid 1px var(--gray-light);
+  color: var(--gray);
+  display: block;
+  font-weight: bold;
+  padding: 25px 0;
+  text-transform: uppercase;
 }
