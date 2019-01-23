@@ -1,16 +1,16 @@
 .button {
-  background: ;
   background: linear-gradient(
     135deg,
     var(--blue-light) 0%,
     var(--blue-dark) 100%
   );
   border-radius: 35px;
+  box-shadow: 0px 21px 49px 0px rgba(6, 74, 152, 0.45);
   color: var(--white);
   display: inline-block;
   font-weight: bold;
   min-width: 230px;
-  padding: 25px 50px;
+  padding: 23px 50px;
   text-align: center;
   text-transform: uppercase;
 }
