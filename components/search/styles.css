@@ -1,0 +1,30 @@
+.search {
+  align-items: center;
+  border-bottom: solid 1px var(--gray-light);
+  display: flex;
+  padding-bottom: 30px;
+}
+
+.search__icon {
+  margin-right: 30px;
+}
+
+.search__label {
+  align-items: center;
+  color: var(--gray);
+  cursor: pointer;
+  display: flex;
+  font-weight: bold;
+  margin-right: 20px;
+  min-width: 250px;
+  text-transform: uppercase;
+}
+
+.search__input {
+  -webkit-appearance: textfield;
+  background: none;
+  border: none;
+  color: var(--gray);
+  font-style: italic;
+  width: 100%;
+}
