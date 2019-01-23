@@ -1,4 +1,13 @@
 .button {
+  display: inline-block;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  transform: translateZ(0);
+  transition: 0.3s;
+}
+
+.button--primary {
   background: linear-gradient(
     135deg,
     var(--blue-light) 0%,
@@ -7,16 +16,23 @@
   border-radius: 35px;
   box-shadow: 0px 21px 49px 0px rgba(6, 74, 152, 0.45);
   color: var(--white);
-  display: inline-block;
-  font-weight: bold;
   min-width: 230px;
   padding: 23px 50px;
-  text-align: center;
-  text-transform: uppercase;
-  transform: translateZ(0);
-  transition: 0.3s;
 }
 
-.button:hover {
+.button--primary:hover {
   transform: translateZ(0) scale(1.05);
+}
+
+.button--secondary {
+  border: solid 1px var(--gray);
+  color: var(--gray);
+  padding: 25px 60px;
+  width: 100%;
+}
+
+.button--secondary:hover {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: var(--white);
 }
