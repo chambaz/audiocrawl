@@ -9,4 +9,19 @@
   font-weight: bold;
   padding: 25px 0;
   text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.nav__icon {
+  margin-right: 5px;
+}
+
+.nav__link:hover,
+.nav__link.is-active {
+  color: var(--blue);
+}
+
+.nav__link:hover .nav__icon-path,
+.nav__link.is-active .nav__icon-path {
+  fill: var(--blue);
 }

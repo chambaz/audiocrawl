@@ -13,4 +13,10 @@
   padding: 23px 50px;
   text-align: center;
   text-transform: uppercase;
+  transform: translateZ(0);
+  transition: 0.3s;
+}
+
+.button:hover {
+  transform: translateZ(0) scale(1.05);
 }
