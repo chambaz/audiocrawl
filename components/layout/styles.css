@@ -1,7 +1,7 @@
 .layout {
   display: flex;
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
 }
 
 .layout__sidebar {
@@ -22,4 +22,9 @@
 .layout__sidebar-credit {
   font-size: 13px;
   margin-top: auto;
+}
+
+.layout__content {
+  padding: 80px 40px;
+  width: 100%;
 }
