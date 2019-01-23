@@ -12,13 +12,7 @@
   <body>
     <main class="layout">
       <aside class="layout__sidebar">
-        <h1 class="layout__sidebar-logo logo">
-          <img 
-            class="logo__img" 
-            src="/img/audiocrawl.svg" />
-          <span class="logo__title">AudioCrawl</span>
-        </h1>
-
+        {% include '_components/logo/index.twig' %}
         {% include '_components/nav/index.twig' %}
         
         <p class="layout__sidebar-credit">
