@@ -9,7 +9,8 @@
   --primary-font: 'Raleway', sans-serif;
 
   /* Colors */
-  --black: #000;
+  --black: #000000;
+  --off-black: #424242;
   --white: #fff;
   --gray: #6994a8;
   --gray-light: #bfd1d9;

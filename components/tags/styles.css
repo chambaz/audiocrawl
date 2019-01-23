@@ -1,0 +1,21 @@
+.tags {
+  padding: 30px 0;
+}
+
+.tags__list {
+  margin-top: 20px;
+}
+
+.tags__item {
+  display: inline-block;
+  margin: 10px 5px 10px 0;
+}
+
+.tags__tag {
+  border: solid 1px var(--blue);
+  border-radius: 15px;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: bold;
+  padding: 5px 15px;
+}
