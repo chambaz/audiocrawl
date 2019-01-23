@@ -1,7 +1,8 @@
 .modal {
   align-items: center;
   background: rgba(242, 245, 248, 0.8);
-  display: flex;
+  /* display: flex; */
+  display: none;
   height: 100vh;
   justify-content: center;
   left: 0;
