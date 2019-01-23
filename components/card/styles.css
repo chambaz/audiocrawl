@@ -10,10 +10,6 @@
   transform: translateZ(0) scale(1.03);
 }
 
-.card__link {
-  display: block;
-}
-
 .card__img {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
@@ -23,12 +19,26 @@
 }
 
 .card__info {
+  align-items: center;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
-  padding: 25px 20px;
+  display: flex;
+  padding: 0 20px;
 }
 
 .card__title {
-  color: var(--black);
   font-weight: bold;
+  width: 100%;
+}
+
+.card__title-link {
+  color: var(--black);
+  display: block;
+  padding: 20px 0 24px;
+  transition: 0.3s;
+}
+
+.card__title-link.is-active,
+.card__title-link:hover {
+  color: var(--blue-dark);
 }

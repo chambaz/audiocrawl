@@ -1,0 +1,20 @@
+.card-tools {
+  display: flex;
+}
+
+.card-tools__item {
+  margin-left: 10px;
+}
+
+.card-tools__item:first-child {
+  margin-left: 0;
+}
+
+.card-tools__icon {
+  fill: var(--gray);
+  transition: 0.3s;
+}
+
+.card-tools__link:hover .card-tools__icon {
+  fill: var(--blue-dark);
+}
