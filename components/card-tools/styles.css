@@ -3,7 +3,7 @@
 }
 
 .card-tools__item {
-  margin-left: 10px;
+  margin-left: 13px;
 }
 
 .card-tools__item:first-child {
@@ -12,7 +12,9 @@
 
 .card-tools__icon {
   fill: var(--gray);
+  height: 15px;
   transition: 0.3s;
+  width: 15px;
 }
 
 .card-tools__link:hover .card-tools__icon {

@@ -1,5 +1,5 @@
 .nav__list {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .nav__link {
@@ -24,5 +24,41 @@
 
 .nav__link:hover .nav__icon,
 .nav__link.is-active .nav__icon {
+  fill: var(--blue);
+}
+
+.nav__social {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.nav__social-item {
+  margin-left: 15px;
+}
+
+.nav__social-item:first-child {
+  margin-left: 0;
+}
+
+.nav__social-link {
+  align-items: center;
+  border: solid 1px var(--gray-light);
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+
+.nav__social-icon {
+  fill: var(--gray);
+  height: 15px;
+  width: 15px;
+}
+
+.nav__social-link:hover {
+  border-color: var(--blue);
+}
+
+.nav__social-link:hover .nav__social-icon {
   fill: var(--blue);
 }
