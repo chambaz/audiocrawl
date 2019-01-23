@@ -35,6 +35,10 @@
   border-bottom-color: var(--blue);
 }
 
+.search__label.is-active .search__title {
+  color: var(--blue);
+}
+
 .search__label.is-active .search__input {
   pointer-events: all;
 }
