@@ -11,7 +11,7 @@ $(function() {
 
   ui.cards.on('click', () => {
     ui.modal
-      .css('display', 'block')
+      .css('display', 'flex')
       .delay(10)
       .animate(
         {
