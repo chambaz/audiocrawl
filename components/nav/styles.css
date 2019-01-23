@@ -13,6 +13,7 @@
 }
 
 .nav__icon {
+  fill: #6994a8;
   margin-right: 5px;
 }
 
@@ -21,7 +22,7 @@
   color: var(--blue);
 }
 
-.nav__link:hover .nav__icon-path,
-.nav__link.is-active .nav__icon-path {
+.nav__link:hover .nav__icon,
+.nav__link.is-active .nav__icon {
   fill: var(--blue);
 }
