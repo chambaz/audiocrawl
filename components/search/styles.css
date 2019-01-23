@@ -4,21 +4,37 @@
   border-bottom: solid 1px var(--gray-light);
   cursor: pointer;
   display: flex;
-  margin-right: 20px;
+  font-size: 14px;
   padding-bottom: 30px;
   transition: 0.3s;
+
+  @media (--medium-screen) {
+    font-size: 16px;
+  }
 }
 
 .search__icon {
-  margin-right: 30px;
+  margin-right: 10px;
+
+  @media (--medium-screen) {
+    margin-right: 30px;
+  }
 }
 
 .search__title {
   color: var(--gray);
-  display: block;
+  display: none;
   font-weight: bold;
-  min-width: 220px;
   text-transform: uppercase;
+
+  @media (--small-screen) {
+    display: block;
+    min-width: 190px;
+  }
+
+  @media (--medium-screen) {
+    min-width: 220px;
+  }
 }
 
 .search__input {

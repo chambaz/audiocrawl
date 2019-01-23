@@ -1,0 +1,26 @@
+.handheld-header {
+  padding: 20px 40px 40px;
+  position: relative;
+
+  @media (--medium-screen) {
+    display: none;
+  }
+}
+
+.handheld-header__hamburger {
+  position: absolute;
+  top: 36px;
+  left: 0;
+}
+
+.handheld-header__hamburger-icon {
+  fill: var(--gray);
+  width: 20px;
+  height: 20px;
+  transition: 0.3s;
+}
+
+.handheld-header__hamburger:hover .handheld-header__hamburger-icon {
+  fill: var(--blue);
+  transform: scale(1.05);
+}
