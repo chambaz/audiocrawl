@@ -25,6 +25,8 @@
 }
 
 .layout__content {
+  height: 100vh;
+  overflow: auto;
   padding: 80px 40px;
   width: 100%;
 }

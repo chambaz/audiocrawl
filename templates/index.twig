@@ -2,4 +2,17 @@
 
 {% block content %}
   {% include '_components/search/index.twig' %}
+
+  <section class="grid">
+    {% for i in 0..12 %}
+      <article class="grid__item card">
+        <div class="card__img-container">
+
+        </div>
+        <div class="card__info">
+          <p>Hello world</p>
+        </div>
+      </article>
+    {% endfor %}
+  </section>
 {% endblock %}
