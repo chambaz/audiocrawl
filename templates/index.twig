@@ -3,9 +3,13 @@
 {% block content %}
   {% include '_components/search/index.twig' %}
 
-  <section class="grid">
-    {% for i in 0..11 %}
-      {% include '_components/card/index.twig' %}
-    {% endfor %}
-  </section>
+  <div class="listing">
+    <section class="listing__grid grid">
+      {% for i in 0..11 %}
+        {% include '_components/card/index.twig' %}
+      {% endfor %}
+    </section>
+
+    <a class="listing__load-more button button--secondary" href="#">Load more</a>
+  </div>
 {% endblock %}
