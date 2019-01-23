@@ -27,6 +27,23 @@
   z-index: 2;
 }
 
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: block;
+}
+
+.modal__close-icon {
+  fill: var(--gray-light);
+  transition: 0.3s;
+}
+
+.modal__close:hover .modal__close-icon {
+  fill: var(--blue);
+  transform: scale(1.05);
+}
+
 .modal__content {
   display: grid;
   grid-column-gap: 40px;

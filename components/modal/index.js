@@ -4,7 +4,8 @@ $(function() {
   const ui = {
     cards: $('[data-card]'),
     modal: $('[data-modal]'),
-    container: $('[data-modal-container]')
+    container: $('[data-modal-container]'),
+    close: $('[data-modal-close]')
   }
   let isActive = false
 
@@ -32,9 +33,11 @@ $(function() {
     isActive = true
   })
 
+  ui.close.on('click', closeModal)
+
   ui.modal.on('click', e => {
     if ($(e.target).is('[data-modal]')) {
-      closeModal(ui)
+      closeModal()
     }
   })
 
