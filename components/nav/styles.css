@@ -3,7 +3,7 @@
 }
 
 .nav__link {
-  border-bottom: solid 1px var(--gray-light);
+  border-bottom: solid 1px var(--gray-x-light);
   color: var(--gray);
   display: block;
   font-weight: bold;
