@@ -1,27 +1,23 @@
-.search {
+.search__label {
   align-items: center;
+  border-bottom: solid 1px #bfd1d9;
   border-bottom: solid 1px var(--gray-light);
+  cursor: pointer;
   display: flex;
+  margin-right: 20px;
   padding-bottom: 30px;
   transition: 0.3s;
-}
-
-.search.is-active {
-  border-bottom-color: var(--blue);
 }
 
 .search__icon {
   margin-right: 30px;
 }
 
-.search__label {
-  align-items: center;
+.search__title {
   color: var(--gray);
-  cursor: pointer;
-  display: flex;
+  display: block;
   font-weight: bold;
-  margin-right: 20px;
-  min-width: 250px;
+  min-width: 220px;
   text-transform: uppercase;
 }
 
@@ -31,5 +27,14 @@
   border: none;
   color: var(--gray);
   font-style: italic;
+  pointer-events: none;
   width: 100%;
+}
+
+.search__label.is-active {
+  border-bottom-color: var(--blue);
+}
+
+.search__label.is-active .search__input {
+  pointer-events: all;
 }
