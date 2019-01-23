@@ -1,3 +1,7 @@
+@custom-media --small-screen (width >= 480px);
+@custom-media --medium-screen (width >= 960px);
+@custom-media --large-screen (width >= 1140px);
+
 /* Global Vars */
 :root {
   --small-screen: 480px;
