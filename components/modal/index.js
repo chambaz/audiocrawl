@@ -9,7 +9,13 @@ $(function() {
   }
   let isActive = false
 
-  ui.cards.on('click', () => {
+  ui.cards.on('click', e => {
+    const target = $(e.target)
+
+    if (target.attr('data-link') || target.parents('[data-link]').length) {
+      return
+    }
+
     ui.modal
       .css('display', 'flex')
       .delay(10)
