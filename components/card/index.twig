@@ -1,10 +1,19 @@
-<article class="grid__item card" data-card="{{ data|json_encode() }}">
+{% set cardData = {
+  title: data.title,
+  slug: data.slug,
+  date: {
+    human: data.date|date('M j, Y'),
+    machine: data.date|date('Y-M-D')
+  },
+  originalUrl: data.originalUrl,
+  image: data.image.first().url, 
+  description: data.description,
+  tags: data.tags.all()
+} %}
+
+<article class="grid__item card" data-card="{{ cardData|json_encode() }}">
   <a href="#" data-card-image>
-    {% if data.image is defined and data.image|length > 0 %}
-      {% for img in data.image %}
-        <img class="card__img" src="{{ img.url }}" />
-      {% endfor %}
-    {% endif %}
+    <img class="card__img" src="{{ data.image.first().url }}" />
   </a>
   <div class="card__info">
     <h3 class="card__title">

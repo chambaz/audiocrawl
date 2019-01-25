@@ -18,10 +18,15 @@
     </header>
     <div class="modal__content">
       <div class="modal__main">
-        <img class="modal__img" src="https://placeimg.com/677/418/any" />
-        <div class="modal__body" data-description>
+        <img 
+          class="modal__img" 
+          data-image 
+          {% if data is defined %}src="{{ data.image.first().url }}"{% endif %} />
+        <div class="modal__body">
           <h3 class="modal__subtitle">About this Crawl</h3>
-          {% if data is defined %} {{ data.description }} {% endif %}
+          <div data-description>
+            {% if data is defined %} {{ data.description }} {% endif %}
+          </div>
         </div>
       </div>
       <aside class="modal__sidebar">
