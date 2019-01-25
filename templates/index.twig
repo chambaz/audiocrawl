@@ -5,5 +5,11 @@
   {% include '_components/grid/index.twig' with {
     cards: craft.entries.section('crawls')
   } %}
-  {% include '_components/modal/index.twig' %}
+
+  {% if entry is defined %}
+    {% include '_components/modal/index.twig' with {
+      show: true,
+      data: entry
+    } %}
+  {% endif %}
 {% endblock %}
