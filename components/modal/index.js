@@ -78,10 +78,12 @@ $(function() {
       .html(data.date.human)
       .attr('datetime', data.date.machine)
     ui.modal.find('[data-description]').html(data.description)
+
     ui.modal
       .find('[data-link]')
-      .html(data.originalUrl)
       .attr('href', data.originalUrl)
+      .find('span')
+      .html(data.originalUrl)
 
     ui.modal.find('[data-image]').attr('src', data.image)
 
