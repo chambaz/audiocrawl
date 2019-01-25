@@ -9,6 +9,10 @@ $(function() {
   }
   let isActive = false
 
+  if (ui.modal.hasClass('is-active')) {
+    isActive = true
+  }
+
   ui.cards.on('click', e => {
     const target = $(e.target)
 

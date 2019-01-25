@@ -28,6 +28,12 @@
   z-index: 2;
 }
 
+.modal.is-active,
+.modal.is-active .modal__container {
+  display: block;
+  opacity: 1;
+}
+
 .modal__close {
   position: absolute;
   top: 20px;
