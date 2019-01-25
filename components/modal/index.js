@@ -52,7 +52,7 @@ $(function() {
     const crawlData = JSON.parse($(this).attr('data-card'))
 
     // update history to single entry slug and store crawl data in state
-    history.push(`/crawl/${crawlData.slug}`, crawlData)
+    history.push(`/crawl/${crawlData.slug}/`, crawlData)
   })
 
   // close modal on close icon click or anywhere outside of modal content area

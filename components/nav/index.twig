@@ -1,12 +1,18 @@
+{% set page = craft.request.firstSegment %}
+
 <nav class="layout__sidebar-nav nav">
   <ul class="nav__list">
     <li class="nav__item">
-      <a class="nav__link is-active" href="/">
+      <a 
+        class="nav__link {% if page == '' or page == 'crawl' %}is-active{% endif %}" 
+        href="/">
         Browse
       </a>
     </li>
     <li class="nav__item">
-      <a class="nav__link" href="/favorites">
+      <a 
+        class="nav__link {% if page == 'favorites' %}is-active{% endif %}" 
+        href="/favorites/">
         <svg class="nav__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" width="14" height="14">
           <path d="M11.572,4.27l-3.54-.514L6.448.548a.521.521,0,0,0-.9,0L3.968,3.756.428,4.27a.5.5,0,0,0-.277.853l2.562,2.5-.606,3.526a.5.5,0,0,0,.726.527L6,10.008l3.167,1.665a.488.488,0,0,0,.232.057.5.5,0,0,0,.494-.584L9.287,7.62l2.562-2.5a.5.5,0,0,0-.277-.853Z" />
         </svg>
@@ -14,17 +20,21 @@
       </a>
     </li>
     <li class="nav__item">
-      <a class="nav__link" href="/about">
+      <a 
+        class="nav__link {% if page == 'about' %}is-active{% endif %}" 
+        href="/about/">
         About
       </a>
     </li>
     <li class="nav__item">
-      <a class="nav__link" href="/newsletter">
+      <a 
+        class="nav__link {% if page == 'newsletter' %}is-active{% endif %}" 
+        href="/newsletter/">
         Newsletter
       </a>
     </li>
   </ul>
-  <a class="nav__submit button button--primary" href="/submit">Submit</a>
+  <a class="nav__submit button button--primary" href="/submit/">Submit</a>
   <ul class="nav__social">
     <li class="nav__social-item">
       <a class="nav__social-link" href="https://twitter.com/audiocrawl" target="_blank">
