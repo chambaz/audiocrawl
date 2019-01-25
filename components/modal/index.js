@@ -41,12 +41,12 @@ $(function() {
   ui.cards.on('click', function(e) {
     const target = $(e.target)
 
-    e.preventDefault()
-
     // if share / original URL links clicked then ignore
     if (target.attr('data-link') || target.parents('[data-link]').length) {
       return
     }
+
+    e.preventDefault()
 
     // crawl data parsed from stringified object in attribute
     const crawlData = JSON.parse($(this).attr('data-card'))
