@@ -12,7 +12,7 @@
 } %}
 
 <article class="grid__item card" data-card="{{ cardData|json_encode() }}">
-  <a href="#" data-card-image>
+  <a href="{{ data.url }}/" data-card-image>
     <img class="card__img" src="{{ data.image.first().url }}" />
   </a>
   <div class="card__info">
