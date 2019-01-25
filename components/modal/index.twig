@@ -6,24 +6,28 @@
       </svg>
     </a>
     <header>
-      <h2 class="modal__title">Halo Waypoint</h2>
-      <time class="modal__date" datetime="2018-03-27">March 27, 2018</time>
+      <h2 class="modal__title" data-title>
+        {% if data is defined %} {{ data.title }} {% endif %}
+      </h2>
+      <time 
+        class="modal__date" 
+        data-date 
+        datetime="{% if data is defined %} {{ data.date|date('Y-M-D') }} {% endif %}">
+          {% if data is defined %} {{ data.date|date('M j, Y') }} {% endif %}
+      </time>
     </header>
     <div class="modal__content">
       <div class="modal__main">
         <img class="modal__img" src="https://placeimg.com/677/418/any" />
-        <div class="modal__body">
+        <div class="modal__body" data-description>
           <h3 class="modal__subtitle">About this Crawl</h3>
-          <p>
-            Lorem Khaled Ipsum is a major key to success. To be successful you’ve
-            got to work hard, to make history, simple, you’ve got to make it.
-          </p>
+          {% if data is defined %} {{ data.description }} {% endif %}
         </div>
       </div>
       <aside class="modal__sidebar">
         <ul class="modal__list">
           <li class="modal__item">
-            <a class="modal__link" href="#">
+            <a class="modal__link" href="{% if data is defined %} {{ data.originalUrl }} {% endif %}" data-link target="_blank">
               <svg class="modal__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" width="14" height="14">
                 <g class="nc-icon-wrapper">
                   <path d="M6.245.965,4.727,2.446A.75.75,0,0,0,5.773,3.521L7.3,2.033A1.875,1.875,0,1,1,9.944,4.691L8.463,6.21A.75.75,0,1,0,9.537,7.257l1.475-1.512a3.381,3.381,0,0,0,0-4.773A3.462,3.462,0,0,0,6.245.965Z" />
@@ -31,7 +35,7 @@
                   <path d="M3.47,8.514a.748.748,0,0,0,1.06,0l4-4A.75.75,0,1,0,7.47,3.453l-4,4A.75.75,0,0,0,3.47,8.514Z" />
                 </g>
               </svg>
-              Halo5.com
+              {% if data is defined %} {{ data.originalUrl }} {% endif %}
             </a>
           </li>
           <li class="modal__item">
@@ -46,16 +50,14 @@
         </ul>
         <div class="modal__tags tags">
           <h3 class="tags__title">Tags</h3>
-          <ul class="tags__list">
-            <li class="tags__item">
-              <a class="tags__tag" href="#">Interactive</a>
-            </li>
-            <li class="tags__item">
-              <a class="tags__tag" href="#">Social</a>
-            </li>
-            <li class="tags__item">
-              <a class="tags__tag" href="#">Soundscape</a>
-            </li>
+          <ul class="tags__list" data-tags>
+            {% if data is defined %}
+              {% for tag in data.tags.all() %}
+                <li class="tags__item">
+                  <a class="tags__tag" href="#">{{ tag.title }}</a>
+                </li>
+              {% endfor %}
+            {% endif %}
           </ul>
         </div>
       </aside>

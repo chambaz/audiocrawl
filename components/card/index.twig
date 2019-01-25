@@ -1,4 +1,4 @@
-<article class="grid__item card" data-card>
+<article class="grid__item card" data-card="{{ data|json_encode() }}">
   <a href="#" data-card-image>
     {% if data.image is defined and data.image|length > 0 %}
       {% for img in data.image %}

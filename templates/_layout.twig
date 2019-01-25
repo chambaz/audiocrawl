@@ -32,6 +32,10 @@
         {% block content %}{% endblock %}
       </div>
     </main>
+    
+    <template data-modal-template>
+      {% include '_components/modal/index.twig' %}
+    </template>
 
     <script src="/dist/vendor.js"></script>
     <script src="/dist/bundle.js"></script>
