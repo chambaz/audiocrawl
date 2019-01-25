@@ -72,6 +72,7 @@
   },
   "dependencies": {
     "headroom.js": "^0.9.4",
+    "history": "~4.7.2",
     "jquery": "~3.3.1",
     "normalize.css": "^5.0.0",
     "object-fit-images": "~3.2.4",
