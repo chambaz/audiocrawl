@@ -15,6 +15,7 @@
 .nav__icon {
   fill: #6994a8;
   margin-right: 5px;
+  transition: 0.3s;
 }
 
 .nav__link:hover,
