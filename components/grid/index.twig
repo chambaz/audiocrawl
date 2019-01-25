@@ -1,0 +1,13 @@
+<div class="listing">
+  <section class="listing__grid grid">
+    {% if cards is defined %}
+      {% for card in cards %}
+        {% include '_components/card/index.twig' with {
+          data: card
+        } %}
+      {% endfor %}
+    {% endif %}
+  </section>
+
+  <a class="listing__load-more button button--secondary" href="#">Load more</a>
+</div>
