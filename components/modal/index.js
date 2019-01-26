@@ -5,8 +5,7 @@ const history = createHistory()
 
 $(function() {
   const ui = {
-    cards: $('[data-card]'),
-    close: $('[data-modal-close]')
+    cards: $('[data-card]')
   }
   let isActive = false
 
@@ -25,6 +24,7 @@ $(function() {
   // either way update UI object with modal
   ui.modal = $('[data-modal]')
   ui.container = ui.modal.find('[data-modal-container]')
+  ui.close = $('[data-modal-close]')
 
   history.listen(location => {
     // if home path then close modal
@@ -91,7 +91,9 @@ $(function() {
     data.tags.forEach(tag => {
       tags += `
         <li class="tags__item">
-          <a class="tags__tag" href="#">${tag.title}</a>
+          <a class="tags__tag" href="/tag/${tag.slug}/">
+            ${tag.title}
+          </a>
         </li>
       `
     })
