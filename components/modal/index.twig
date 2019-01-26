@@ -59,7 +59,9 @@
             {% if data is defined %}
               {% for tag in data.tags.all() %}
                 <li class="tags__item">
-                  <a class="tags__tag" href="#">{{ tag.title }}</a>
+                  <a class="tags__tag" href="/tag/{{ tag.slug }}/">
+                    {{ tag.title }}
+                  </a>
                 </li>
               {% endfor %}
             {% endif %}
