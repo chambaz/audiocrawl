@@ -6,7 +6,9 @@
   {% set tag = craft.tags.search(craft.request.lastSegment).first() %}
 
   {% if tag %}
-    <h2>Crawls tagged: {{ craft.request.lastSegment }}</h2>
+    {% include '_components/search-header/index.twig' with {
+      title: 'Crawls tagged "' ~ tag ~ '"'
+    } %}
     {% include '_components/grid/index.twig' with {
       cards: craft.entries.section('crawls').relatedTo(tag)
     } %}

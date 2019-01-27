@@ -9,11 +9,15 @@
   %}
 
   {% if crawls|length > 0 %}
-    <h2>Searching for '{{ craft.request.getQuery('q') }}'</h2>
+    {% include '_components/search-header/index.twig' with {
+      title: 'Searching for "' ~ craft.request.getQuery('q') ~ '"'
+    } %}
     {% include '_components/grid/index.twig' with {
       cards: crawls 
     } %}
   {% else %}
-    <h2>No results</h2>
+    {% include '_components/search-header/index.twig' with {
+      title: 'No results'
+    } %}
   {% endif %}
 {% endblock %}

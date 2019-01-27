@@ -1,0 +1,9 @@
+.search-header {
+  margin-top: 40px;
+}
+
+.search-header__title {
+  color: var(--gray);
+  font-size: 18px;
+  font-style: italic;
+}
