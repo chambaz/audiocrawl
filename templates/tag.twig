@@ -6,7 +6,7 @@
   {% set tag = craft.tags.search(craft.request.lastSegment).first() %}
 
   {% if tag %}
-    {% include '_components/search-header/index.twig' with {
+    {% include '_components/page-header/index.twig' with {
       title: 'Crawls tagged "' ~ tag ~ '"'
     } %}
     {% include '_components/grid/index.twig' with {
