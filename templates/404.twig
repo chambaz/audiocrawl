@@ -1,5 +1,8 @@
 {% extends '_layout' %}
 
 {% block content %}
-  <h1>Oops 404</h1>
+  {% include '_components/search/index.twig' %}
+  {% include '_components/search-header/index.twig' with {
+    title: '404 - Oops page not found, please try searching' 
+  } %}
 {% endblock %}
