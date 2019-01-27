@@ -104,7 +104,7 @@ $(function() {
 
   function openModal() {
     ui.modal
-      .css('display', 'flex')
+      .addClass('is-active')
       .delay(10)
       .animate(
         {
@@ -114,7 +114,7 @@ $(function() {
       )
 
     ui.container
-      .css('display', 'block')
+      .addClass('is-active')
       .delay(150)
       .animate(
         {
@@ -131,10 +131,18 @@ $(function() {
       return
     }
 
-    ui.modal.add(ui.container).css({
-      display: 'none',
-      opacity: 0
-    })
+    const modalContainer = ui.modal.add(ui.container)
+
+    modalContainer.animate(
+      {
+        opacity: 0
+      },
+      100
+    )
+
+    setTimeout(() => {
+      modalContainer.removeClass('is-active is-visible')
+    }, 150)
 
     isActive = false
     history.goBack()
