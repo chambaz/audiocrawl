@@ -16,30 +16,37 @@
 
     {% from _self import errorList %}
 
-    <form method="post" action="" accept-charset="UTF-8">
-      {{ csrfInput() }}
-      <input type="hidden" name="action" value="contact-form/send">
-      {{ redirectInput('thanks') }}
+    <form class="submit__form" method="post" action="" accept-charset="UTF-8">
+      <div class="input" data-input>
+        <label class="input__label" for="from-name">Your Name</label>
+        <input class="input__field" data-input-field id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}">
+        {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+      </div>
 
-      <h3><label for="from-name">Your Name</label></h3>
-      <input id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}">
-      {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+      <div class="input" data-input>
+        <label class="input__label" for="from-email">Your Email</label>
+        <input class="input__field" data-input-field id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}">
+        {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+      </div>
 
-      <h3><label for="from-email">Your Email</label></h3>
-      <input id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}">
-      {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+      <div class="input" data-input>
+        <label class="input__label" for="url">URL</label></h3>
+        <input class="input__field" data-input-field id="url" type="text" name="url" value="{{ message.url ?? '' }}">
+        {{ message is defined and message ? errorList(message.getErrors('url')) }}
+      </div>
 
-      <h3><label for="subject">Subject</label></h3>
-      <input id="subject" type="text" name="subject" value="{{ message.subject ?? '' }}">
-      {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+      <div class="input" data-input>
+        <label class="input__label" for="message">Message</label></h3>
+        <textarea class="input__field" data-input-field rows="10" cols="40" id="message" name="message">{{ message.message ?? '' }}</textarea>
+        {{ message is defined and message ? errorList(message.getErrors('message')) }}
+      </div>
 
-      <h3><label for="message">Message</label></h3>
-      <textarea rows="10" cols="40" id="message" name="message">{{ message.message ?? '' }}</textarea>
-      {{ message is defined and message ? errorList(message.getErrors('message')) }}
-
-      <input type="submit" value="Send">
+      <input class="button button--secondary" type="submit" value="Send">
 
       <input type="hidden" name="toEmail" value="{{ 'ac@digitalsurgeons.com'|hash }}">
+      <input type="hidden" name="action" value="contact-form/send">
+      {{ csrfInput() }}
+      {{ redirectInput('thanks') }}
     </form>
   </div>
 {% endblock %}
