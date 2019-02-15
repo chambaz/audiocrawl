@@ -18,6 +18,11 @@
   width: 100%;
 }
 
+.input__field--error {
+  background: var(--red-light);
+  border-color: var(--red);
+}
+
 .input.is-active .input__label {
   color: var(--black);
   font-size: 12px;

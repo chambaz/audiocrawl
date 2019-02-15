@@ -19,26 +19,22 @@
     <form class="submit__form" method="post" action="" accept-charset="UTF-8">
       <div class="input" data-input>
         <label class="input__label" for="from-name">Your Name</label>
-        <input class="input__field" data-input-field id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}">
-        {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+        <input class="input__field {% if message is defined and message %} input__field--error {% endif %}" data-input-field id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}">
       </div>
 
       <div class="input" data-input>
         <label class="input__label" for="from-email">Your Email</label>
-        <input class="input__field" data-input-field id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}">
-        {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+        <input class="input__field {% if message is defined and message %} input__field--error {% endif %}" data-input-field id="from-email" type="email" name="fromEmail" value="{{ message.fromEmail ?? '' }}">
       </div>
 
       <div class="input" data-input>
         <label class="input__label" for="url">URL</label></h3>
-        <input class="input__field" data-input-field id="url" type="text" name="url" value="{{ message.url ?? '' }}">
-        {{ message is defined and message ? errorList(message.getErrors('url')) }}
+        <input class="input__field {% if message is defined and message %} input__field--error {% endif %}" data-input-field id="url" type="text" name="subject" value="{{ message.subject ?? '' }}">
       </div>
 
       <div class="input" data-input>
         <label class="input__label" for="message">Message</label></h3>
-        <textarea class="input__field" data-input-field rows="10" cols="40" id="message" name="message">{{ message.message ?? '' }}</textarea>
-        {{ message is defined and message ? errorList(message.getErrors('message')) }}
+        <textarea class="input__field {% if message is defined and message %} input__field--error {% endif %}" data-input-field rows="10" cols="40" id="message" name="message">{{ message.message ?? '' }}</textarea>
       </div>
 
       <input class="button button--secondary" type="submit" value="Send">

@@ -24,6 +24,8 @@
   --blue-light: #43d6f9;
   --blue-dark: #2c94e7;
   --blue-white: #f1f5f8;
+  --red: #c0392b;
+  --red-light: #f5edec;
 
   /* Font Colors */
   --base-background-color: var(--blue-white);
