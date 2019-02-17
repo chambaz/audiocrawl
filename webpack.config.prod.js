@@ -1,23 +1,17 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const webpack = require('webpack')
-const WebpackNotifierPlugin = require('webpack-notifier')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const CompilerPlugin = require('compiler-webpack-plugin')
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
-const Dotenv = new (require('dotenv-webpack'))()
 const path = require('path')
 const glob = require('glob')
 const child_process = require('child_process')
 const config = require('./config')
 const vendor = require('./js/vendor')
 
-let localEnv = Dotenv.definitions['process.env.LOCAL_URL']
-localEnv = localEnv.substring(1, localEnv.length - 1)
-
 module.exports = {
   entry: {
-    bundle: './js/app.js',
-    style: './css/app.css',
+    bundle: glob.sync('./components/**/index.js'),
+    style: './scss/app.css',
     svgxuse: './node_modules/svgxuse/svgxuse.js',
     vendor: vendor
   },
@@ -47,35 +41,16 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor'
     }),
-    new BrowserSyncPlugin(
-      {
-        host: 'localhost',
-        proxy: process.env.SITE || localEnv || 'http://0.0.0.0:8080',
-        port: 3000,
-        files: ['public_html/dist/*.css']
-      },
-      {
-        reload: false
-      }
-    ),
     new CleanWebpackPlugin([path.join(__dirname, config.paths.dist)], {
       root: process.cwd()
     }),
-    new WebpackNotifierPlugin({
-      title: 'Webpack',
-      contentImage: path.join(
-        __dirname,
-        `${config.paths.publicPath}img/ds-logo.jpg`
-      )
-    }),
     new CompilerPlugin('done', function() {
       child_process.exec(
-        `onchange '${
-          config.paths.publicPath
-        }icons' -i -- ./node_modules/.bin/svg-sprite-generate -d ${
+        `./node_modules/.bin/svg-sprite-generate -d ${
           config.paths.publicPath
         }icons -o ${config.paths.dist}symbol-defs.svg`
       )
-    })
+    }),
+    new webpack.optimize.UglifyJsPlugin()
   ]
 }
