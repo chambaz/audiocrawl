@@ -10,8 +10,8 @@ const vendor = require('./js/vendor')
 
 module.exports = {
   entry: {
-    bundle: glob.sync('./components/**/index.js'),
-    style: './scss/app.css',
+    bundle: './js/app.js',
+    style: './css/app.css',
     svgxuse: './node_modules/svgxuse/svgxuse.js',
     vendor: vendor
   },
