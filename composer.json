@@ -5,7 +5,8 @@
     "craftcms/redactor": "^2.3",
     "craftcms/aws-s3": "^1.0",
     "craftcms/contact-form": "^2.2",
-    "rias/craft-contact-form-extensions": "^1.0"
+    "rias/craft-contact-form-extensions": "^1.0",
+    "verbb/feed-me": "^3.1"
   },
   "autoload": {
     "psr-4": {
