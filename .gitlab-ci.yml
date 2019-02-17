@@ -38,7 +38,7 @@ deploy_dev:
     # Add private key so we can connect to destination server
     - chmod 0600 id_rsa
     - rsync --copy-unsafe-links -rvzcSle 'ssh -p 22 -o StrictHostKeyChecking=no -i id_rsa' --exclude-from=.rsyncignore ./ deployments@162.243.173.73:/var/www/audiocrawl
-    - ssh -p 22 -o StrictHostKeyChecking=no -i id_rsa deployments@159.65.178.176 rm -rf /var/www/circle/storage/runtime/*
+    - ssh -p 22 -o StrictHostKeyChecking=no -i id_rsa deployments@162.243.173.73 rm -rf /var/www/audiocrawl/storage/runtime/*
   stage: deploy
   environment: development
   only:
