@@ -1,5 +1,23 @@
 {% extends '_layout' %}
 
 {% block content %}
-  <h1>Newsletter</h1>
+  <div class="page">
+    <h1 class="page__heading">Newsletter</h1>
+
+    <div class="page__content">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      Praesent eleifend aliquet orci, a congue lacus tristique aliquet. 
+      Curabitur ac scelerisque sapien, nec finibus erat.</p>
+    </div>
+
+    <div class="page__content">
+      <form class="submit__form" method="post" action="" accept-charset="UTF-8">
+        <div class="input input--inline" data-input>
+          <label class="input__label" for="from-name">Your Email</label>
+          <input class="input__field {% if message is defined and message %} input__field--error {% endif %}" data-input-field required id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}">
+          <input class="button button--secondary" type="submit" value="Send">
+        </div>
+      </form>
+    </div>
+  </div>
 {% endblock %}

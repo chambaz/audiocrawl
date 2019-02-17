@@ -29,7 +29,7 @@
   background: transparent;
   border: solid 1px var(--gray);
   color: var(--gray);
-  padding: 12px 50px;
+  padding: 10px 50px 8px;
 }
 
 .button--full-width {
