@@ -1,0 +1,46 @@
+image: registry.gitlab.com/digitalsurgeons/build-base:latest
+
+build_backend:
+  cache:
+    paths:
+      - vendor
+  script:
+    - composer install --no-interaction
+  artifacts:
+    paths:
+      - vendor/
+  stage: build
+  only:
+    - branches
+
+build_frontend:
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - npm install
+    - npm start
+  artifacts:
+    paths:
+      - public_html/dist/
+  stage: build
+  only:
+    - branches
+
+.ssh_credentials_template:
+  &ssh_creds # Adds private key so we can connect to destination server
+  - echo "$SSH_PRIVATE_KEY" > id_rsa
+  - chmod 0600 id_rsa
+
+deploy_dev:
+  before_script: *ssh_creds
+  script:
+    # Add private key so we can connect to destination server
+    - mv .env.dev .env
+    - chmod 0600 id_rsa
+    - rsync --copy-unsafe-links -rvzcSle 'ssh -p 22 -o StrictHostKeyChecking=no -i id_rsa' --exclude-from=.rsyncignore ./ deployments@162.243.173.73:/var/www/audiocrawl
+    - ssh -p 22 -o StrictHostKeyChecking=no -i id_rsa deployments@159.65.178.176 rm -rf /var/www/circle/storage/runtime/*
+  stage: deploy
+  environment: development
+  only:
+    - develop
