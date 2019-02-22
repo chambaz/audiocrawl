@@ -11,6 +11,6 @@
 
   {% include '_components/search/index.twig' %}
   {% include '_components/grid/index.twig' with {
-    cards: craft.entries.section('crawls')
+    cards: craft.entries.section('crawls').limit(18)
   } %}
 {% endblock %}
