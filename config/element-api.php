@@ -19,6 +19,7 @@ return [
               'machine' => $entry->date->format('Y-M-D'),
             ),
             'image' => $entry->image[0]->url,
+            'tags' => array_map('strval', $entry->tags->all())
           ];
         }
       ];
