@@ -77,7 +77,16 @@ $(function() {
       .find('[data-date]')
       .html(data.date.human)
       .attr('datetime', data.date.machine)
-    ui.modal.find('[data-description]').html(data.description)
+
+    const descEl = ui.modal.find('[data-description]')
+    if (data.description) {
+      descEl
+        .html(data.description)
+        .parent()
+        .show()
+    } else {
+      descEl.parent().hide()
+    }
 
     ui.modal
       .find('[data-link]')
@@ -87,17 +96,25 @@ $(function() {
 
     ui.modal.find('[data-image]').attr('src', data.image)
 
-    let tags = ''
-    data.tags.forEach(tag => {
-      tags += `
-        <li class="tags__item">
-          <a class="tags__tag" href="/tag/${tag.slug}/">
-            ${tag.title}
-          </a>
-        </li>
-      `
-    })
-    ui.modal.find('[data-tags]').html(tags)
+    const tagsEl = ui.modal.find('[data-tags]')
+    if (data.tags.length) {
+      let tags = ''
+      data.tags.forEach(tag => {
+        tags += `
+          <li class="tags__item">
+            <a class="tags__tag" href="/tag/${tag.slug}/">
+              ${tag.title}
+            </a>
+          </li>
+        `
+      })
+      tagsEl
+        .html(tags)
+        .parent()
+        .show()
+    } else {
+      tagsEl.parent().hide()
+    }
 
     openModal()
   }

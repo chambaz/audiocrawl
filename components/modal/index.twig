@@ -22,7 +22,7 @@
           class="modal__img" 
           data-image 
           {% if data is defined %}src="{{ data.image.first().url }}"{% endif %} />
-        <div class="modal__body">
+        <div class="modal__body {% if data is defined and data.description == '' %} is-hidden {% endif %}">
           <h3 class="modal__subtitle">About this Crawl</h3>
           <div data-description>
             {% if data is defined %} {{ data.description }} {% endif %}
@@ -53,7 +53,7 @@
             </a>
           </li>
         </ul>
-        <div class="modal__tags tags">
+        <div class="modal__tags tags {% if data is defined and data.tags|length == 0 %} is-hidden {% endif %}">
           <h3 class="tags__title">Tags</h3>
           <ul class="tags__list" data-tags>
             {% if data is defined %}

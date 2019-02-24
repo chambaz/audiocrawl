@@ -99,6 +99,10 @@
   padding-right: 40px;
 }
 
+.modal__body.is-hidden {
+  display: none;
+}
+
 .modal__subtitle {
   color: var(--off-black);
   font-size: 18px;
@@ -111,6 +115,10 @@
   @media (--medium-screen) {
     margin-top: 0;
   }
+}
+
+.modal__tags.is-hidden {
+  display: none;
 }
 
 .modal__link {
