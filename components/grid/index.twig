@@ -1,8 +1,20 @@
 <div class="listing">
-  <section class="listing__grid grid" data-listing>
+  <section class="listing__grid grid" data-grid>
     {% if cards is defined %}
       {% for card in cards %}
         {% include '_components/card/index.twig' with {
+          cardData: {
+            title: card.title,
+            slug: card.slug,
+            date: {
+              human: card.date|date('M j, Y'),
+              machine: card.date|date('Y-M-D')
+            },
+            originalUrl: card.originalUrl,
+            image: card.image.first().url, 
+            description: card.description,
+            tags: card.tags.all()
+          },
           data: card
         } %}
       {% endfor %}

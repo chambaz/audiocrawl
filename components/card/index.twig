@@ -1,24 +1,11 @@
-{% set cardData = {
-  title: data.title,
-  slug: data.slug,
-  date: {
-    human: data.date|date('M j, Y'),
-    machine: data.date|date('Y-M-D')
-  },
-  originalUrl: data.originalUrl,
-  image: data.image.first().url, 
-  description: data.description,
-  tags: data.tags.all()
-} %}
-
-<article class="grid__item card" data-card="{{ cardData|json_encode() }}">
-  <a href="{{ data.url }}/" data-card-image>
-    <img class="card__img" src="{{ data.image.first().url }}" />
+<article class="grid__item card" data-card="{% if cardData is defined %}{{ cardData|json_encode() }}{% endif %}">
+  <a {% if data is defined %}href="{{ data.url }}/"{% endif %} data-card-image>
+    <img class="card__img" {% if data is defined %}src="{{ data.image.first().url }}"{% endif %} />
   </a>
   <div class="card__info">
     <h3 class="card__title">
       <a class="card__title-link" data-card-title href="#">
-        {{ data.title }}
+        {% if data is defined %}{{ data.title }}{% endif %}
       </a>
     </h3>
     <ul class="card-tools">
@@ -30,7 +17,7 @@
         </a>
       </li>
       <li class="card-tools__item">
-        <a class="card-tools__link" href="{{ data.originalUrl }}" data-link target="_blank">
+        <a class="card-tools__link" {% if data is defined %}href="{{ data.originalUrl }}"{% endif %} data-card-original-url data-link target="_blank">
           <svg class="card-tools__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" width="14" height="14">
             <g class="nc-icon-wrapper">
               <path d="M6.245.965,4.727,2.446A.75.75,0,0,0,5.773,3.521L7.3,2.033A1.875,1.875,0,1,1,9.944,4.691L8.463,6.21A.75.75,0,1,0,9.537,7.257l1.475-1.512a3.381,3.381,0,0,0,0-4.773A3.462,3.462,0,0,0,6.245.965Z" /> 

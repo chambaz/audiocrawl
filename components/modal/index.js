@@ -5,6 +5,7 @@ const history = createHistory()
 
 $(function() {
   const ui = {
+    grid: $('[data-grid]'),
     cards: $('[data-card]')
   }
   let isActive = false
@@ -17,8 +18,9 @@ $(function() {
 
     // if no modal in document then fetch from template tag ready to open with JS
   } else {
-    const modalTmpl = $('[data-modal-template]')[0]
-    $('body').append($(document.importNode(modalTmpl.content, true)))
+    $('body').append(
+      $(document.importNode($('[data-modal-template]')[0].content, true))
+    )
   }
 
   // either way update UI object with modal
@@ -38,7 +40,7 @@ $(function() {
     }
   })
 
-  ui.cards.on('click', function(e) {
+  ui.grid.on('click', '[data-card]', function(e) {
     const target = $(e.target)
 
     // if share / original URL links clicked then ignore
