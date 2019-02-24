@@ -1,5 +1,5 @@
 <div class="listing">
-  <section class="listing__grid grid">
+  <section class="listing__grid grid" data-listing>
     {% if cards is defined %}
       {% for card in cards %}
         {% include '_components/card/index.twig' with {
@@ -9,5 +9,10 @@
     {% endif %}
   </section>
 
-  <a class="listing__load-more button button--secondary button--large" href="#">Load more</a>
+  <a 
+    class="listing__load-more button button--secondary button--large" 
+    data-load-more 
+    href="#">
+    Load more
+  </a>
 </div>
