@@ -12,6 +12,7 @@ return [
         'transformer' => function(Entry $entry) {
           return [
             'url' => $entry->url,
+            'slug' => $entry->slug,
             'title' => $entry->title,
             'description' => $entry->description,
             'originalUrl' => $entry->originalUrl,
