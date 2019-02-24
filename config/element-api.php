@@ -8,6 +8,7 @@ return [
       return [
         'elementType' => Entry::class,
         'criteria' => ['section' => 'crawls'],
+        'elementsPerPage' => 18,
         'transformer' => function(Entry $entry) {
           return [
             'url' => $entry->url,
