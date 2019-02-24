@@ -24,6 +24,7 @@ ui.loadMore.click(() => {
       })
     }
 
+    // if next link available then update url otherwise hide button as no more pages
     if (response.meta.pagination.links.next) {
       url = response.meta.pagination.links.next
       ui.loadMore.html('Load More')
@@ -35,8 +36,11 @@ ui.loadMore.click(() => {
   })
 })
 
+// render card from template
 function renderCard(card) {
   const tmpl = ui.tmpl.clone()
+
+  tmpl.find('[data-card]').attr('data-card', JSON.stringify(card))
 
   tmpl
     .find('[data-card-title]')
