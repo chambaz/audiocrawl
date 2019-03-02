@@ -55,5 +55,14 @@ function renderCard(card) {
 
   tmpl.find('[data-card-original-url]').attr('href', card.originalUrl)
 
+  tmpl
+    .find('[data-card-tweet]')
+    .attr(
+      'href',
+      `https://twitter.com/intent/tweet?text=${
+        card.title
+      }&via=audiocrawl&hashtags=WebAudio`
+    )
+
   return tmpl
 }
