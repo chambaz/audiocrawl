@@ -4,6 +4,10 @@
   font-style: italic;
 }
 
+.page__heading--margin {
+  margin-top: 40px;
+}
+
 .page__content {
   margin-top: 40px;
 

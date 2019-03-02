@@ -5,14 +5,18 @@
 
   {% set tag = craft.tags.search(craft.request.lastSegment).first() %}
 
-  {% if tag %}
-    {% include '_components/page-header/index.twig' with {
-      title: 'Crawls tagged "' ~ tag ~ '"'
-    } %}
-    {% include '_components/grid/index.twig' with {
-      cards: craft.entries.section('crawls').relatedTo(tag)
-    } %}
-  {% else %}
-    <h2>No results</h2>
-  {% endif %}
+  <div class="page">
+    {% if tag %}
+      <h1 class="page__heading page__heading--margin">
+        Crawls tagged "{{tag}}"
+      </h1>
+      {% include '_components/grid/index.twig' with {
+        cards: craft.entries.section('crawls').relatedTo(tag)
+      } %}
+    {% else %}
+      <div class="page__content">
+        <h2>No results</h2>
+      </div>
+    {% endif %}
+  </div>
 {% endblock %}
