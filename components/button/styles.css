@@ -45,3 +45,8 @@
   border-color: var(--blue);
   color: var(--white);
 }
+
+.is-disabled {
+  pointer-events: none;
+  opacity: 0.7;
+}

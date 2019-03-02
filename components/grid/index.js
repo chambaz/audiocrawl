@@ -15,6 +15,7 @@ ui.loadMore.click(() => {
   }
 
   loading = true
+  ui.loadMore.addClass('is-disabled')
   ui.loadMore.html('Loading...')
 
   $.get(url, response => {
@@ -27,6 +28,7 @@ ui.loadMore.click(() => {
     // if next link available then update url otherwise hide button as no more pages
     if (response.meta.pagination.links.next) {
       url = response.meta.pagination.links.next
+      ui.loadMore.removeClass('is-disabled')
       ui.loadMore.html('Load More')
     } else {
       ui.loadMore.hide()
