@@ -8,7 +8,7 @@
     "rias/craft-contact-form-extensions": "^1.0",
     "verbb/feed-me": "^3.1",
     "craftcms/element-api": "^2.5",
-    "nystudio107/craft-seomatic": "^3.1"
+    "nystudio107/craft-seomatic": "^3.1.45"
   },
   "autoload": {
     "psr-4": {
