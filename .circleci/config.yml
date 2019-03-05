@@ -1,0 +1,116 @@
+version: 2
+
+references:
+  php_deps_cache_key: &php_deps_cache_key v1-dependencies-{{ checksum "composer.json" }}
+  php_deps_backup_cache_key: &php_deps_backup_cache_key v1-dependencies
+  js_deps_cache_key: &js_deps_cache_key node-v3-{{ checksum "package.json" }}
+  js_deps_backup_cache_key: &js_deps_backup_cache_key node-v3
+  workspace_root: &workspace_root /tmp/workspace
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+jobs:
+  build_backend:
+    docker:
+      - image: circleci/php:7.2
+
+    steps:
+      - *attach_workspace
+      - checkout
+
+      - restore_cache:
+          keys:
+            - *php_deps_cache_key
+            - *php_deps_backup_cache_key
+
+      - run:
+          name: Install PHP Dependencies
+          command: composer install --prefer-source --no-interaction
+      - run:
+          name: Persist PHP Dependencies
+          command: |
+            set -exu
+            mkdir -p /tmp/workspace/vendor
+            mv vendor/* /tmp/workspace/vendor/
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - vendor
+      - save_cache:
+          paths:
+            - ./vendor
+          key: v1-dependencies-{{ checksum "composer.json" }}
+
+  build_frontend:
+    docker:
+      - image: circleci/node:8
+
+    steps:
+      - *attach_workspace
+      - checkout
+
+      - restore_cache:
+          keys:
+            - *js_deps_cache_key
+            - *js_deps_backup_cache_key
+      - run:
+          name: Install Node Dependencies
+          command: npm install
+      - run:
+          name: Build JS & CSS
+          command: npm run prod
+      - run:
+          name: Persist JS & CSS Bundles
+          command: |
+            set -exu
+            mkdir -p /tmp/workspace/dist
+            mv public_html/dist/* /tmp/workspace/dist/
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - dist
+      - save_cache:
+          key: node-v3-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+
+  deploy:
+    docker:
+      - image: alpine:latest
+
+    steps:
+      - run:
+          name: Install deployment packages
+          command: apk add --no-cache ca-certificates openssh-client rsync
+      - *attach_workspace
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - 'c4:5c:80:25:39:5e:d8:63:09:b9:aa:db:40:c7:a8:6c'
+      - run:
+          name: Move Workspace Artifacts
+          command: |
+            set -exu
+            mkdir -p vendor
+            mkdir -p public_html/dist
+            mv /tmp/workspace/vendor/* vendor/
+            mv /tmp/workspace/dist/* web/dist/
+
+      - run:
+          name: rsync Deploy
+          command: rsync --copy-unsafe-links -rvzcSle 'ssh -p 22 -o StrictHostKeyChecking=no -i id_rsa' --exclude-from '.rsyncignore' ./ deployments@159.65.178.176:/var/www/audiocrawl
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build_backend
+      - build_frontend
+      - deploy:
+          requires:
+            - build_backend
+            - build_frontend
+          filters:
+            branches:
+              only: develop
