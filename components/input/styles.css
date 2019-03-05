@@ -6,15 +6,15 @@
 
 .input__label {
   color: var(--gray);
-  left: 12px;
+  left: 17px;
   position: absolute;
-  top: 12px;
+  top: 17px;
   transition: 0.3s;
 }
 
 .input__field {
   border: solid 1px var(--gray-x-light);
-  padding: 10px;
+  padding: 15px;
   width: 100%;
 }
 

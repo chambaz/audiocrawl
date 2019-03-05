@@ -29,7 +29,8 @@
   background: transparent;
   border: solid 1px var(--gray);
   color: var(--gray);
-  padding: 10px 50px 8px;
+  padding: 13px 50px 10px;
+  transform: translateX(1px);
 }
 
 .button--full-width {

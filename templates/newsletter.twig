@@ -12,11 +12,11 @@
 
     <div class="page__content">
       <form class="submit__form" method="post" action="" accept-charset="UTF-8">
-        <div class="input input--inline" data-input>
+        <div class="input" data-input>
           <label class="input__label" for="from-name">Your Email</label>
-          <input class="input__field {% if message is defined and message %} input__field--error {% endif %}" data-input-field required id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}">
-          <input class="button button--secondary" type="submit" value="Send">
+          <input class="input__field {% if message is defined and message %} input__field--error {% endif %}" data-input-field required id="from-name" type="email" name="fromName" value="{{ message.fromName ?? '' }}">
         </div>
+        <input class="button button--secondary" type="submit" value="Send">
       </form>
     </div>
   </div>
