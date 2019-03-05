@@ -47,6 +47,7 @@
 
       <input type="hidden" name="toEmail" value="{{ 'ac@digitalsurgeons.com'|hash }}">
       <input type="hidden" name="action" value="contact-form/send">
+      {{ craft.contactFormExtensions.recaptcha | raw }}
       {{ csrfInput() }}
       {{ redirectInput('thanks') }}
     </form>
