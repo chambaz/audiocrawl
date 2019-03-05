@@ -22,7 +22,7 @@
 
     {% from _self import errorList %}
 
-    <form class="submit__form" method="post" action="" accept-charset="UTF-8">
+    <form class="form" method="post" action="" accept-charset="UTF-8">
       <div class="input" data-input>
         <label class="input__label" for="from-name">Your Name</label>
         <input class="input__field {% if message is defined and message %} input__field--error {% endif %}" data-input-field required id="from-name" type="text" name="fromName" value="{{ message.fromName ?? '' }}">
