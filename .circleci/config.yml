@@ -65,7 +65,7 @@ jobs:
           command: |
             set -exu
             mkdir -p /tmp/workspace/dist
-            mv public_html/dist/* /tmp/workspace/dist/
+            mv web/dist/* /tmp/workspace/dist/
       - persist_to_workspace:
           root: *workspace_root
           paths:
