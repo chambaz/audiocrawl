@@ -87,7 +87,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "00:6f:23:df:06:4d:8c:d1:58:ce:4a:05:e0:94:68:ed"
+            - "62:44:60:a7:25:43:43:27:b2:2e:87:48:76:89:cb:97"
       - run:
           name: Move Workspace Artifacts
           command: |
@@ -99,7 +99,7 @@ jobs:
 
       - run:
           name: rsync Deploy
-          command: rsync --copy-unsafe-links -rvzcSle 'ssh -p 22 -o StrictHostKeyChecking=no -i id_rsa' --exclude-from '.rsyncignore' ./ deployments@159.65.178.176:/var/www/audiocrawl
+          command: rsync --copy-unsafe-links -rvzcSle 'ssh -p 22 -o StrictHostKeyChecking=no -i id_rsa' --exclude-from '.rsyncignore' ./ deployments@audiocrawl.digitalsurgeonsdev.com:/var/www/audiocrawl
 
 workflows:
   version: 2
