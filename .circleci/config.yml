@@ -87,7 +87,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - '00:6f:23:df:06:4d:8c:d1:58:ce:4a:05:e0:94:68:ed'
+            - "00:6f:23:df:06:4d:8c:d1:58:ce:4a:05:e0:94:68:ed"
       - run:
           name: Move Workspace Artifacts
           command: |
