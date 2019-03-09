@@ -125,7 +125,7 @@ jobs:
 
       - run:
           name: rsync Deploy
-          command: rsync --copy-unsafe-links -rvzcSle 'ssh -p 22 -o StrictHostKeyChecking=no -i id_rsa' --exclude-from '.rsyncignore' ./ root@stage.audiocrawl.io:/var/www/stage.audiocrawl.io
+          command: rsync --copy-unsafe-links -rvzcSle 'ssh -p 22 -o StrictHostKeyChecking=no -i id_rsa' --exclude-from '.rsyncignore' ./ root@134.209.116.2:/var/www/stage.audiocrawl.io
 
 workflows:
   version: 2
@@ -140,7 +140,7 @@ workflows:
           filters:
             branches:
               only: develop
-      - deploy_dev:
+      - deploy_stage:
           requires:
             - build_backend
             - build_frontend
