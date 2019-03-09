@@ -127,6 +127,32 @@ jobs:
           name: rsync Deploy
           command: rsync --copy-unsafe-links -rvzcSle 'ssh -p 22 -o StrictHostKeyChecking=no -i id_rsa' --exclude-from '.rsyncignore' ./ root@134.209.116.2:/var/www/stage.audiocrawl.io
 
+  deploy_prod:
+    docker:
+      - image: alpine:latest
+
+    steps:
+      - run:
+          name: Install deployment packages
+          command: apk add --no-cache ca-certificates openssh-client rsync
+      - *attach_workspace
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - '62:44:60:a7:25:43:43:27:b2:2e:87:48:76:89:cb:97'
+      - run:
+          name: Move Workspace Artifacts
+          command: |
+            set -exu
+            mkdir -p vendor
+            mkdir -p public_html/dist
+            mv /tmp/workspace/vendor/* vendor/
+            mv /tmp/workspace/dist/* web/dist/
+
+      - run:
+          name: rsync Deploy
+          command: rsync --copy-unsafe-links -rvzcSle 'ssh -p 22 -o StrictHostKeyChecking=no -i id_rsa' --exclude-from '.rsyncignore' ./ root@134.209.116.2:/var/www/audiocrawl.io
+
 workflows:
   version: 2
   build:
@@ -147,3 +173,10 @@ workflows:
           filters:
             branches:
               only: master
+      - deploy_prod:
+          requires:
+            - build_backend
+            - build_frontend
+          filters:
+            branches:
+              only: production
