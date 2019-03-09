@@ -31,24 +31,13 @@ ui.logo
 
     animating = true
     animation.play()
-    anime({
-      targets: '[data-logo-line]',
-      opacity: 1,
-      duration: 1000
-    })
   })
   .on('mouseout', () => {
     if (!animating) {
       return
     }
-    anime({
-      targets: '[data-logo-line]',
-      opacity: 0,
-      duration: 500,
-      complete: () => {
-        animation.restart()
-        animation.pause()
-        animating = false
-      }
-    })
+
+    animation.restart()
+    animation.pause()
+    animating = false
   })

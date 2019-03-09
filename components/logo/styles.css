@@ -18,8 +18,9 @@
 
 .logo__line {
   display: none;
-  opacity: 0;
+}
 
+.logo:hover .logo__line {
   @media (--medium-screen) {
     display: block;
   }
