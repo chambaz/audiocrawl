@@ -71,6 +71,7 @@
     "webpack-notifier": "~1.6.0"
   },
   "dependencies": {
+    "animejs": "~3.0.1",
     "headroom.js": "^0.9.4",
     "history": "~4.7.2",
     "jquery": "~3.3.1",
