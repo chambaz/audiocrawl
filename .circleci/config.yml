@@ -140,7 +140,7 @@ workflows:
           filters:
             branches:
               only: develop
-      - deploy_stage:
+      - deploy_dev:
           requires:
             - build_backend
             - build_frontend
