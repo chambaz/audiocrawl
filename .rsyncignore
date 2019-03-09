@@ -8,7 +8,6 @@
 .rsyncignore
 .sass-lint.yml
 .scss-lint.yml
-.htaccess
 bower.json
 gulpfile.js
 npm-shrinkwrap.json
