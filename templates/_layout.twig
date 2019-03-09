@@ -3,12 +3,52 @@
   <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="utf-8" />
-    <title>Welcome to Craft CMS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <meta name="referrer" content="origin-when-cross-origin" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <link href="/dist/style.css" rel="stylesheet" />
   </head>
   <body>
-    {% block content %}{% endblock %}
+    <main class="layout">
+      <aside class="layout__sidebar" data-sidebar>
+        <a class="layout__sidebar-close" data-sidebar-close href="#">
+          <svg class="layout__sidebar-close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="14" height="14">
+            <title>AudioCrawl Logo</title>
+            <path d="M14.7,1.3c-0.4-0.4-1-0.4-1.4,0L8,6.6L2.7,1.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4L6.6,8l-5.3,5.3 c-0.4,0.4-0.4,1,0,1.4C1.5,14.9,1.7,15,2,15s0.5-0.1,0.7-0.3L8,9.4l5.3,5.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L9.4,8l5.3-5.3C15.1,2.3,15.1,1.7,14.7,1.3z"/>
+          </svg>
+        </a>
+        {% include '_components/logo/index.twig' %}
+        {% include '_components/nav/index.twig' %}
+        
+        <p class="layout__sidebar-credit">
+          Made with ❤️ at
+          <a class="layout__sidebar-credit-link" href="https://www.digitalsurgeons.com">
+            Digital Surgeons
+          </a>
+        </p>
+      </aside>
+      <div class="layout__content">
+        {% include '_components/handheld-header/index.twig' %}
+        {% block content %}{% endblock %}
+      </div>
+    </main>
+    
+    <template data-modal-template>
+      {% include '_components/modal/index.twig' %}
+    </template>
+
+    <template data-card-template>
+      {% include '_components/card/index.twig' %}
+    </template>
+
+    <script src="/dist/vendor.js"></script>
+    <script src="/dist/bundle.js"></script>
   <body>
 </html>

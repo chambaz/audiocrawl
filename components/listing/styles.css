@@ -1,0 +1,9 @@
+.listing__grid {
+  margin-bottom: 80px;
+}
+
+.listing__load-more {
+  display: block;
+  margin: 0 auto;
+  width: calc(33.3333% - 20px);
+}

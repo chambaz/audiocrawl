@@ -1,0 +1,31 @@
+.input {
+  margin: 25px 0;
+  position: relative;
+  width: 100%;
+}
+
+.input__label {
+  color: var(--gray);
+  left: 17px;
+  position: absolute;
+  top: 17px;
+  transition: 0.3s;
+}
+
+.input__field {
+  border: solid 1px var(--gray-x-light);
+  padding: 15px;
+  width: 100%;
+}
+
+.input__field--error {
+  background: var(--red-light);
+  border-color: var(--red);
+}
+
+.input.is-active .input__label {
+  color: var(--black);
+  font-size: 12px;
+  left: 0;
+  top: -15px;
+}

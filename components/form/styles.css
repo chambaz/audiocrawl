@@ -1,0 +1,12 @@
+.form {
+  margin-top: 25px;
+  width: 100%;
+
+  @media (--medium-screen) {
+    width: 80%;
+  }
+
+  @media (--large-screen) {
+    width: 60%;
+  }
+}

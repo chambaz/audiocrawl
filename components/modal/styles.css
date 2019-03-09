@@ -1,0 +1,145 @@
+.modal {
+  -webkit-overflow-scrolling: touch;
+  align-items: center;
+  background: rgba(242, 245, 248, 0.8);
+  display: none;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  transition: 0.3s;
+  width: 100vw;
+  z-index: 2;
+
+  @media (--small-screen) {
+    padding: 40px;
+  }
+}
+
+.modal__container {
+  background: var(--white);
+  box-shadow: 0px 39px 64px 0px rgba(25, 38, 45, 0.22);
+  display: none;
+  margin: 0 auto;
+  max-width: 1180px;
+  opacity: 0;
+  padding: 40px;
+  position: relative;
+  transition: 0.3s;
+  width: 100%;
+  z-index: 2;
+
+  @media (--medium-screen) {
+    padding: 50px 70px;
+  }
+}
+
+.modal.is-active {
+  display: block;
+
+  @media (--medium-screen) {
+    display: flex;
+  }
+}
+
+.modal.is-active .modal__container {
+  display: block;
+}
+
+.modal.is-visible,
+.modal.is-visible .modal__container {
+  opacity: 1;
+}
+
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: block;
+}
+
+.modal__close-icon {
+  fill: var(--gray-light);
+  transition: 0.3s;
+}
+
+.modal__close:hover .modal__close-icon {
+  fill: var(--blue);
+  transform: scale(1.05);
+}
+
+.modal__content {
+  display: block;
+
+  @media (--medium-screen) {
+    display: grid;
+    grid-column-gap: 40px;
+    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.modal__title {
+  color: var(--black);
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.modal__date {
+  display: block;
+  margin-bottom: 30px;
+}
+
+.modal__body {
+  line-height: 1.7;
+  margin-top: 30px;
+  padding-right: 40px;
+}
+
+.modal__body.is-hidden {
+  display: none;
+}
+
+.modal__subtitle {
+  color: var(--off-black);
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.modal__sidebar {
+  margin-top: 30px;
+
+  @media (--medium-screen) {
+    margin-top: 0;
+  }
+}
+
+.modal__tags.is-hidden {
+  display: none;
+}
+
+.modal__link {
+  align-items: center;
+  border-bottom: solid 1px var(--gray-light);
+  color: var(--gray-dark);
+  display: flex;
+  font-weight: bold;
+  padding: 20px 0;
+  transition: 0.3s;
+}
+
+.modal__icon {
+  fill: var(--gray-dark);
+  margin-right: 15px;
+}
+
+.modal__link:hover {
+  color: var(--blue);
+}
+
+.modal__link:hover .modal__icon {
+  fill: var(--blue);
+}

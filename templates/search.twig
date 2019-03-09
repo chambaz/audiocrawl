@@ -1,0 +1,27 @@
+{% extends '_layout' %}
+
+{% block content %}
+  {% include '_components/search/index.twig' %}
+
+  {% set crawls = craft.entries.section('crawls')
+    .search(craft.request.getQuery('q'))
+    .all()
+  %}
+
+  <div class="page">
+    {% if crawls|length > 0 %}
+      <h1 class="page__heading page__heading--margin">
+        Searching for "{{craft.request.getQuery('q')}}"
+      </h1>
+      {% include '_components/grid/index.twig' with {
+        cards: crawls 
+      } %}
+    {% else %}
+      <div class="page__content">
+        {% include '_components/page-header/index.twig' with {
+          title: 'No results'
+        } %}
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

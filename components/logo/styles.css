@@ -1,0 +1,16 @@
+.logo {
+  margin: 0 auto;
+  max-width: 145px;
+  transform: translateZ(0);
+  transition: 0.3s;
+  width: 100%;
+}
+
+.logo:hover {
+  transform: scale(1.03);
+}
+
+.logo__title {
+  display: block;
+  text-indent: -99999px;
+}

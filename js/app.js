@@ -1,14 +1,8 @@
-// ==========================================================================
-// Polyfills
-// ==========================================================================
 import './polyfills'
-
-// ==========================================================================
-// Global
-// ==========================================================================
-
-
-// ==========================================================================
-// Components
-// ==========================================================================
-// Components are globbed and included automagically within Webpack
+import '../components/search'
+import '../components/card'
+import '../components/modal'
+import '../components/handheld-header'
+import '../components/input'
+import '../components/grid'
+import '../components/form'

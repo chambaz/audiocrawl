@@ -1,0 +1,73 @@
+<div class="modal {% if show is defined and show == true %} is-active is-visible {% endif %}" data-modal>
+  <div class="modal__container" data-modal-container>
+    <a class="modal__close" data-modal-close href="#">
+      <svg class="modal__close-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="14" height="14">
+        <path d="M14.7,1.3c-0.4-0.4-1-0.4-1.4,0L8,6.6L2.7,1.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4L6.6,8l-5.3,5.3 c-0.4,0.4-0.4,1,0,1.4C1.5,14.9,1.7,15,2,15s0.5-0.1,0.7-0.3L8,9.4l5.3,5.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L9.4,8l5.3-5.3C15.1,2.3,15.1,1.7,14.7,1.3z"/>
+      </svg>
+    </a>
+    <header>
+      <h2 class="modal__title" data-title>
+        {% if data is defined %} {{ data.title }} {% endif %}
+      </h2>
+      <time 
+        class="modal__date" 
+        data-date 
+        datetime="{% if data is defined %} {{ data.date|date('Y-M-D') }} {% endif %}">
+          {% if data is defined %} {{ data.date|date('M j, Y') }} {% endif %}
+      </time>
+    </header>
+    <div class="modal__content">
+      <div class="modal__main">
+        <img 
+          class="modal__img" 
+          data-image 
+          {% if data is defined %}src="{{ data.image.first().url }}"{% endif %} />
+        <div class="modal__body {% if data is defined and data.description == '' %} is-hidden {% endif %}">
+          <h3 class="modal__subtitle">About this Crawl</h3>
+          <div data-description>
+            {% if data is defined %} {{ data.description }} {% endif %}
+          </div>
+        </div>
+      </div>
+      <aside class="modal__sidebar">
+        <ul class="modal__list">
+          <li class="modal__item">
+            <a class="modal__link" href="{% if data is defined %} {{ data.originalUrl }} {% endif %}" data-link target="_blank">
+              <svg class="modal__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" width="14" height="14">
+                <g class="nc-icon-wrapper">
+                  <path d="M6.245.965,4.727,2.446A.75.75,0,0,0,5.773,3.521L7.3,2.033A1.875,1.875,0,1,1,9.944,4.691L8.463,6.21A.75.75,0,1,0,9.537,7.257l1.475-1.512a3.381,3.381,0,0,0,0-4.773A3.462,3.462,0,0,0,6.245.965Z" />
+                  <path d="M6.227,8.446,4.7,9.935A1.875,1.875,0,1,1,2.056,7.276L3.537,5.757A.75.75,0,0,0,2.463,4.71L.988,6.222A3.375,3.375,0,0,0,5.755,11L7.273,9.521A.75.75,0,0,0,6.227,8.446Z" />
+                  <path d="M3.47,8.514a.748.748,0,0,0,1.06,0l4-4A.75.75,0,1,0,7.47,3.453l-4,4A.75.75,0,0,0,3.47,8.514Z" />
+                </g>
+              </svg>
+              <span>{% if data is defined %} {{ data.originalUrl }} {% endif %}</span>
+            </a>
+          </li>
+          <li class="modal__item">
+            <a class="modal__link" href="#">
+              <svg class="modal__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" width="14" height="14">
+                <path d="M10,10H2V2H4V0H1A1,1,0,0,0,0,1V11a1,1,0,0,0,1,1H11a1,1,0,0,0,1-1V7H10Z" />
+                <path d="M8,2C5.688,2,3,3.23,3,7,4.142,5.152,6.168,5,8,5V7l4-3.5L8,0Z" /></g>
+              </svg>
+              Share
+            </a>
+          </li>
+        </ul>
+        <div class="modal__tags tags {% if data is defined and data.tags|length == 0 %} is-hidden {% endif %}">
+          <h3 class="tags__title">Tags</h3>
+          <ul class="tags__list" data-tags>
+            {% if data is defined %}
+              {% for tag in data.tags.all() %}
+                <li class="tags__item">
+                  <a class="tags__tag" href="/tag/{{ tag.slug }}/">
+                    {{ tag.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            {% endif %}
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>

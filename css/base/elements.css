@@ -8,9 +8,13 @@ html {
 }
 
 body {
-  font: 16px/1 sans-serif;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  background: var(--base-background-color);
+  color: var(--base-font-color);
+  font-family: var(--primary-font);
+  font-size: 16px;
+  letter-spacing: 1px;
   margin: 0;
 }
 
@@ -49,7 +53,11 @@ button {
   transition: 0.3s;
 }
 
-a {
+a,
+a:link,
+a:visited,
+a:active,
+a:hover {
   text-decoration: none;
 }
 
@@ -61,6 +69,14 @@ button {
   -webkit-font-smoothing: inherit;
   letter-spacing: inherit;
   overflow: visible;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: var(--primary-font);
 }
 
 ::-moz-focus-inner {
