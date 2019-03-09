@@ -1,6 +1,22 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # password protect stage
+    SetEnvIf Host stage.audiocrawl.io passreq
+    SetEnvIf Host audiocrawl.io passreq
+    AuthType Basic
+    AuthName "My Protected Area"
+    AuthUserFile /var/www/.htpasswd
+    Require valid-user
+    Order allow,deny
+    Allow from all
+    Deny from env=passreq
+    Satisfy any
+
+    # force www
+    RewriteCond %{HTTP_HOST} ^audiocrawl.io [NC]
+    RewriteRule ^(.*)$ http://www.audiocrawl.io/$1 [L,R=301]
+
     # Send would-be 404 requests to Craft
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
