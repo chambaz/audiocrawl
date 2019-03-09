@@ -65,6 +65,7 @@
 
 .layout__sidebar-nav {
   margin: 20px;
+  transform: translateY(-30px);
 }
 
 .layout__sidebar-credit {
