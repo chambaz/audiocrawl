@@ -14,6 +14,7 @@
 
 .input__field {
   border: solid 1px var(--gray-x-light);
+  letter-spacing: 1px;
   padding: 15px;
   width: 100%;
 }
