@@ -129,7 +129,7 @@ jobs:
 
 workflows:
   version: 2
-  build_dev:
+  build:
     jobs:
       - build_backend
       - build_frontend
@@ -140,10 +140,6 @@ workflows:
           filters:
             branches:
               only: develop
-  build_stage:
-    jobs:
-      - build_backend
-      - build_frontend
       - deploy_stage:
           requires:
             - build_backend
