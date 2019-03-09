@@ -5,19 +5,15 @@
     <h1 class="page__heading">Newsletter</h1>
 
     <div class="page__content">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-      Praesent eleifend aliquet orci, a congue lacus tristique aliquet. 
-      Curabitur ac scelerisque sapien, nec finibus erat.</p>
+      <p>
+        Sign up for the AudioCrawl newsletter and receive our round-up of the 
+        best in WebAudio straight to your inbox once a month. Only 
+        best-in-class WebAudio, we don't spam!
+      </p>
     </div>
 
     <div class="page__content">
-      <form class="form" data-mailchimp-form accept-charset="UTF-8">
-        <div class="input" data-input>
-          <label class="input__label" for="from-name">Your Email</label>
-          <input class="input__field {% if message is defined and message %} input__field--error {% endif %}" data-input-field required id="from-name" type="email" name="fromName" value="{{ message.fromName ?? '' }}">
-        </div>
-        <input class="button button--secondary" type="submit" value="Send">
-      </form>
+      {% include '_components/newsletter/index.twig' %}
     </div>
   </div>
 {% endblock %}
