@@ -1,12 +1,12 @@
 {
   "require": {
-    "craftcms/cms": "3.1.15",
+    "craftcms/cms": "3.1.17.1",
     "vlucas/phpdotenv": "^2.4.0",
     "craftcms/redactor": "^2.3",
-    "craftcms/aws-s3": "^1.0",
+    "craftcms/aws-s3": "1.2.1",
     "craftcms/contact-form": "^2.2",
     "rias/craft-contact-form-extensions": "^1.1",
-    "verbb/feed-me": "^3.1",
+    "verbb/feed-me": "3.1.15",
     "craftcms/element-api": "^2.5",
     "nystudio107/craft-seomatic": "^3.1.45"
   },
