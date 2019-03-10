@@ -104,8 +104,8 @@ $(function() {
       data.tags.forEach(tag => {
         tags += `
           <li class="tags__item">
-            <a class="tags__tag" href="/tag/${tag.slug}/">
-              ${tag.title}
+            <a class="tags__tag" href="/tag/${tag}/">
+              ${tag}
             </a>
           </li>
         `
