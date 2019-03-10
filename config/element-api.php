@@ -8,6 +8,7 @@ return [
 
       // query params for filtering
       $tagParam = \Craft::$app->request->getQueryParam('tag');
+      $searchParam = \Craft::$app->request->getQueryParam('q');
 
       // build up criteria array
       $criteria = [
@@ -17,6 +18,11 @@ return [
       // add tag filter
       if ($tagParam) {
         $criteria['relatedTo'] = \craft\elements\Tag::find()->search($tagParam)->first();
+      }
+
+      // add search filter
+      if ($searchParam) {
+        $criteria['search'] = $searchParam;
       }
 
       return [
