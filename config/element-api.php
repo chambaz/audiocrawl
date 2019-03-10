@@ -5,9 +5,23 @@ use craft\helpers\UrlHelper;
 return [
   'endpoints' => [
     '/api/crawls.json' => function() {
+
+      // query params for filtering
+      $tagParam = \Craft::$app->request->getQueryParam('tag');
+
+      // build up criteria array
+      $criteria = [
+        'section' => 'crawls'
+      ];
+
+      // add tag filter
+      if ($tagParam) {
+        $criteria['relatedTo'] = \craft\elements\Tag::find()->search($tagParam)->first();
+      }
+
       return [
         'elementType' => Entry::class,
-        'criteria' => ['section' => 'crawls'],
+        'criteria' => $criteria,
         'elementsPerPage' => 18,
         'transformer' => function(Entry $entry) {
           return [
