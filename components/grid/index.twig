@@ -27,10 +27,12 @@
     {% endif %}
   </section>
 
+  {% if cards is defined and cards.total() > 18 %}
   <a 
     class="listing__load-more button button--secondary button--large" 
     data-load-more 
     href="#">
     Load more
   </a>
+  {% endif %}
 </div>
