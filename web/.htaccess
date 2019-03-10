@@ -3,7 +3,6 @@
 
     # password protect stage
     SetEnvIf Host stage.audiocrawl.io passreq
-    SetEnvIf Host audiocrawl.io passreq
     AuthType Basic
     AuthName "My Protected Area"
     AuthUserFile /var/www/.htpasswd
