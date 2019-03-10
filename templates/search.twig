@@ -11,16 +11,16 @@
   <div class="page">
     {% if crawls|length > 0 %}
       <h1 class="page__heading page__heading--margin">
-        Searching for "{{craft.request.getQuery('q')}}"
+        Searching for <span class="page__heading--italic">"{{craft.request.getQuery('q')}}"</span>
       </h1>
       {% include '_components/grid/index.twig' with {
         cards: crawls 
       } %}
     {% else %}
       <div class="page__content">
-        {% include '_components/page-header/index.twig' with {
-          title: 'No results'
-        } %}
+        <h1 class="page__heading page__heading--margin">
+          <span class="page__heading--italic">No results found</span> 😞
+        </h1>
       </div>
     {% endif %}
   </div>
