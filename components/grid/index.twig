@@ -1,7 +1,13 @@
 <div class="listing">
-  <section class="listing__grid grid" data-grid>
+  <section class="listing__grid grid" data-grid {% if pagination is defined %}data-grid-pagination="{{ pagination|json_encode() }}"{% endif %}>
     {% if cards is defined %}
       {% for card in cards %}
+        {# build array of tag slugs #}
+        {% set tags = [] %}
+        {% for tag in card.tags.all() %}
+          {% set tags = tags|merge([tag.slug]) %}
+        {% endfor %}
+
         {% include '_components/card/index.twig' with {
           cardData: {
             title: card.title,
@@ -13,7 +19,7 @@
             originalUrl: card.originalUrl,
             image: card.image.first().getUrl('crawlsTransform'), 
             description: card.description,
-            tags: card.tags.all()
+            tags: tags
           },
           data: card
         } %}
