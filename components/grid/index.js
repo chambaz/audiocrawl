@@ -9,6 +9,19 @@ const ui = {
 let url = '/api/crawls.json?page=2'
 let loading = false
 
+// add pagination filters if specified
+if (ui.grid.attr('data-grid-pagination')) {
+  const paginationData = JSON.parse(ui.grid.attr('data-grid-pagination'))
+
+  if (paginationData.tag) {
+    url += `&tag=${paginationData.tag}`
+  }
+
+  if (paginationData.search) {
+    url += `&q=${paginationData.search}`
+  }
+}
+
 ui.loadMore.click(() => {
   if (loading) {
     return false

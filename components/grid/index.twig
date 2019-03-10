@@ -1,7 +1,13 @@
 <div class="listing">
-  <section class="listing__grid grid" data-grid>
+  <section class="listing__grid grid" data-grid {% if pagination is defined %}data-grid-pagination="{{ pagination|json_encode() }}"{% endif %}>
     {% if cards is defined %}
       {% for card in cards %}
+        {# build array of tag slugs #}
+        {% set tags = [] %}
+        {% for tag in card.tags.all() %}
+          {% set tags = tags|merge([tag.slug]) %}
+        {% endfor %}
+
         {% include '_components/card/index.twig' with {
           cardData: {
             title: card.title,
@@ -11,9 +17,9 @@
               machine: card.date|date('Y-M-D')
             },
             originalUrl: card.originalUrl,
-            image: card.image.first().url, 
+            image: card.image.first().getUrl('crawlsTransform'), 
             description: card.description,
-            tags: card.tags.all()
+            tags: tags
           },
           data: card
         } %}
@@ -21,10 +27,12 @@
     {% endif %}
   </section>
 
+  {% if cards is defined and cards.total() > 18 %}
   <a 
     class="listing__load-more button button--secondary button--large" 
     data-load-more 
     href="#">
     Load more
   </a>
+  {% endif %}
 </div>

@@ -11,7 +11,10 @@
         Crawls tagged <span class="page__heading--italic">"{{tag}}"</span>
       </h1>
       {% include '_components/grid/index.twig' with {
-        cards: craft.entries.section('crawls').relatedTo(tag)
+        cards: craft.entries.section('crawls').relatedTo(tag).limit(18),
+        pagination: {
+          tag: tag.slug
+        }
       } %}
     {% else %}
       <div class="page__content">
