@@ -37,7 +37,9 @@ ui.logo
       return
     }
 
-    animation.restart()
-    animation.pause()
-    animating = false
+    setTimeout(() => {
+      animation.restart()
+      animation.pause()
+      animating = false
+    }, 1000)
   })
