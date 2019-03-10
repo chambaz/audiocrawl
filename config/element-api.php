@@ -18,7 +18,7 @@ return [
             'originalUrl' => $entry->originalUrl,
             'date' => array(
               'human' => $entry->date->format('M j, Y'),
-              'machine' => $entry->date->format('Y-M-D'),
+              'machine' => $entry->date->format('Y-m-d'),
             ),
             'image' => $entry->image[0]->url,
             'tags' => array_map('strval', $entry->tags->all())
