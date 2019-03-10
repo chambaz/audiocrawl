@@ -11,7 +11,7 @@
               machine: card.date|date('Y-M-D')
             },
             originalUrl: card.originalUrl,
-            image: card.image.first().url, 
+            image: card.image.first().getUrl('crawlsTransform'), 
             description: card.description,
             tags: card.tags.all()
           },
