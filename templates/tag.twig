@@ -8,14 +8,16 @@
   <div class="page">
     {% if tag %}
       <h1 class="page__heading page__heading--margin">
-        Crawls tagged "{{tag}}"
+        Crawls tagged <span class="page__heading--italic">"{{tag}}"</span>
       </h1>
       {% include '_components/grid/index.twig' with {
         cards: craft.entries.section('crawls').relatedTo(tag)
       } %}
     {% else %}
       <div class="page__content">
-        <h2>No results</h2>
+        <h1 class="page__heading page__heading--margin">
+          <span class="page__heading--italic">No results found</span> 😞
+        </h1>
       </div>
     {% endif %}
   </div>

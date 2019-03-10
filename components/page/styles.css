@@ -1,6 +1,9 @@
 .page__heading {
   color: var(--gray);
   font-size: 22px;
+}
+
+.page__heading--italic {
   font-style: italic;
 }
 
