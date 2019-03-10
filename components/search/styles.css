@@ -44,6 +44,7 @@
   color: var(--gray);
   font-style: italic;
   pointer-events: none;
+  letter-spacing: 1px;
   width: 100%;
 }
 
