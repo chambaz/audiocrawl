@@ -16,12 +16,13 @@
   pointer-events: none;
 }
 
-.logo__line {
-  display: none;
+.logo__line-group {
+  opacity: 0;
+  transition: 0.75s;
 }
 
-.logo:hover .logo__line {
+.logo:hover .logo__line-group {
   @media (--medium-screen) {
-    display: block;
+    opacity: 1;
   }
 }
