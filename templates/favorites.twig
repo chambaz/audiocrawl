@@ -3,6 +3,6 @@
 {% block content %}
   {% include '_components/search/index.twig' %}
   {% include '_components/grid/index.twig' with {
-    cards: craft.entries.section('crawls').search('favorite:1')
+    cards: craft.entries.section('crawls').search('favorite:1').orderBy('date desc')
   } %}
 {% endblock %}
