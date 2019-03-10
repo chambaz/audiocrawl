@@ -5,7 +5,7 @@
 
   {% set crawls = craft.entries.section('crawls')
     .search(craft.request.getQuery('q'))
-    .all()
+    .limit(18)
   %}
 
   <div class="page">
@@ -14,7 +14,10 @@
         Searching for <span class="page__heading--italic">"{{craft.request.getQuery('q')}}"</span>
       </h1>
       {% include '_components/grid/index.twig' with {
-        cards: crawls 
+        cards: crawls,
+        pagination: {
+          search: craft.request.getQuery('q')
+        }
       } %}
     {% else %}
       <div class="page__content">
