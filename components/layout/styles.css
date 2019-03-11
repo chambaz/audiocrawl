@@ -29,13 +29,13 @@
 
   @media (--small-screen) {
     left: -360px;
-    overflow: inherit;
     width: 360px;
   }
 
   @media (--medium-screen) {
     left: 0;
     position: relative;
+    overflow: inherit;
     width: 360px;
   }
 }
