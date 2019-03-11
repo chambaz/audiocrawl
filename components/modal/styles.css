@@ -14,7 +14,7 @@
   width: 100vw;
   z-index: 2;
 
-  @media (--small-screen) {
+  @media (--medium-screen) {
     padding: 40px;
   }
 }
