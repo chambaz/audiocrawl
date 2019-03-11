@@ -2,7 +2,9 @@
 
 {% block content %}
   {% include '_components/search/index.twig' %}
-  {% include '_components/page-header/index.twig' with {
-    title: '404 - Oops page not found, please try searching' 
-  } %}
+  <div class="page">
+    <h1 class="page__heading page__heading--margin">
+      404 - Oops page not found, please try searching
+    </h1>
+  </div>
 {% endblock %}
