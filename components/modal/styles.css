@@ -129,11 +129,13 @@
   font-weight: bold;
   padding: 20px 0;
   transition: 0.3s;
+  word-break: break-all;
 }
 
 .modal__icon {
   fill: var(--gray-dark);
   margin-right: 15px;
+  min-width: 15px;
 }
 
 .modal__link:hover {
