@@ -9,6 +9,7 @@ $(function() {
     cards: $('[data-card]')
   }
   let isActive = false
+  let ctrl = false
 
   // if data-modal already exists then we must be on a single entry page
   // e.g /crawl/slug
@@ -53,6 +54,11 @@ $(function() {
     // crawl data parsed from stringified object in attribute
     const crawlData = JSON.parse($(this).attr('data-card'))
 
+    if (ctrl) {
+      window.open(crawlData.originalUrl)
+      return
+    }
+
     // update history to single entry slug and store crawl data in state
     history.push(`/crawl/${crawlData.slug}/`, crawlData)
   })
@@ -69,6 +75,8 @@ $(function() {
   $('body').on('keyup', e => {
     if (e.keyCode === 27) {
       closeModal()
+    } else if ([17, 91].includes(e.keyCode)) {
+      ctrl = true
     }
   })
 
