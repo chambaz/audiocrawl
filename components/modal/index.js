@@ -11,6 +11,8 @@ $(function() {
   let isActive = false
   let ctrl = false
 
+  let docTitle = document.title
+
   // if data-modal already exists then we must be on a single entry page
   // e.g /crawl/slug
   // set active to true so JS can take over
@@ -75,7 +77,13 @@ $(function() {
   $('body').on('keyup', e => {
     if (e.keyCode === 27) {
       closeModal()
-    } else if ([17, 91].includes(e.keyCode)) {
+    }
+
+    ctrl = false
+  })
+
+  $('body').on('keydown', e => {
+    if ([17, 91].includes(e.keyCode)) {
       ctrl = true
     }
   })
@@ -126,6 +134,8 @@ $(function() {
       tagsEl.parent().hide()
     }
 
+    document.title = `${data.title} | Audiocrawl`
+
     openModal()
   }
 
@@ -172,6 +182,7 @@ $(function() {
     }, 150)
 
     isActive = false
+    document.title = docTitle
     history.goBack()
   }
 })
