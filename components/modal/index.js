@@ -75,7 +75,13 @@ $(function() {
   $('body').on('keyup', e => {
     if (e.keyCode === 27) {
       closeModal()
-    } else if ([17, 91].includes(e.keyCode)) {
+    }
+
+    ctrl = false
+  })
+
+  $('body').on('keydown', e => {
+    if ([17, 91].includes(e.keyCode)) {
       ctrl = true
     }
   })
