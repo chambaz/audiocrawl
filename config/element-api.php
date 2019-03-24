@@ -9,6 +9,7 @@ return [
       // query params for filtering
       $tagParam = \Craft::$app->request->getQueryParam('tag');
       $searchParam = \Craft::$app->request->getQueryParam('q');
+      $perPageParam = \Craft::$app->request->getQueryParam('perPage');
 
       // build up criteria array
       $criteria = [
@@ -25,10 +26,16 @@ return [
         $criteria['search'] = $searchParam;
       }
 
+      // elements per page
+      $perPage = 18;
+      if ($perPageParam) {
+        $perPage = $perPageParam;
+      }
+
       return [
         'elementType' => Entry::class,
         'criteria' => $criteria,
-        'elementsPerPage' => 18,
+        'elementsPerPage' => $perPage,
         'transformer' => function(Entry $entry) {
           return [
             'url' => $entry->url,
