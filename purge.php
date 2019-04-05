@@ -3,7 +3,7 @@
 $curl = curl_init();
 curl_setopt_array($curl, [
   CURLOPT_RETURNTRANSFER => 1,
-  CURLOPT_URL => 'http://audiocrawl.ac.dsdev/api/crawls.json?perPage=-1'
+  CURLOPT_URL => 'https://www.audiocrawl.io/api/crawls.json?perPage=-1'
 ]);
 $result = curl_exec($curl);
 curl_close($curl);
