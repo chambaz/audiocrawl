@@ -16,6 +16,9 @@
     <link href="/dist/style.css" rel="stylesheet" />
   </head>
   <body>
+    {% include '_components/banner/index.twig' with {
+      content: '📣 Sign up for our monthly newsletter and receive the best in WebAudio straight to your inbox'
+    } %}
     <main class="layout">
       <aside class="layout__sidebar" data-sidebar>
         <a class="layout__sidebar-close" data-sidebar-close href="#">
