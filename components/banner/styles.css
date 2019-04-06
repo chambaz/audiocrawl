@@ -1,0 +1,19 @@
+.banner {
+  background: var(--blue);
+  color: white;
+  opacity: 0.9;
+  padding: 10px 20px;
+  position: absolute;
+  text-align: center;
+  transform: translateY(-80px);
+  width: 100%;
+  z-index: 999;
+
+  @media (--medium-screen) {
+    transform: translateY(-40px);
+  }
+}
+
+.banner--visible {
+  transform: translateY(0);
+}

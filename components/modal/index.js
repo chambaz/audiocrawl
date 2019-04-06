@@ -3,7 +3,7 @@ import createHistory from 'history/createBrowserHistory'
 
 const history = createHistory()
 
-$(function() {
+$(() => {
   const ui = {
     grid: $('[data-grid]'),
     cards: $('[data-card]')

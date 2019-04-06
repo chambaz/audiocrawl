@@ -72,6 +72,7 @@
   },
   "dependencies": {
     "animejs": "~3.0.1",
+    "exit-intent": "~1.1.0",
     "headroom.js": "^0.9.4",
     "history": "~4.7.2",
     "jquery": "~3.3.1",

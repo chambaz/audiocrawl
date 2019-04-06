@@ -13,7 +13,9 @@
     </div>
 
     <div class="page__content">
-      {% include '_components/newsletter/index.twig' %}
+      {% include '_components/newsletter/index.twig' with {
+        inline: true
+      } %}
     </div>
   </div>
 {% endblock %}

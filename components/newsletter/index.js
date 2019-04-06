@@ -1,19 +1,20 @@
 import $ from 'jquery'
 
-const ui = {
-  form: $('[data-newsletter]'),
-  input: $('[data-email]'),
-  submit: $('[data-submit]')
-}
-
-ui.form.on('submit', e => {
+$('body').on('submit', '[data-newsletter]', function(e) {
   e.preventDefault()
 
-  if (!ui.input.val()) {
+  if (
+    !$(this)
+      .find('[data-email]')
+      .val()
+  ) {
     return
   }
 
-  ui.submit.addClass('is-disabled').val('Signing up...')
+  $(this)
+    .find('[data-submit]')
+    .addClass('is-disabled')
+    .val('Signing up...')
 
   $.ajax({
     url:
@@ -21,8 +22,8 @@ ui.form.on('submit', e => {
     dataType: 'jsonp',
     method: 'POST',
     contentType: 'application/json; charset=utf-8',
-    data: ui.form.serialize()
+    data: $(this).serialize()
   }).done(() => {
-    ui.form.html('<strong>Thanks for signing up!</strong>')
+    $(this).html('<strong>Thanks for signing up!</strong>')
   })
 })

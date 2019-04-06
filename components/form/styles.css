@@ -1,5 +1,5 @@
 .form {
-  margin-top: 25px;
+  margin-top: 40px;
   width: 100%;
 
   @media (--medium-screen) {
@@ -8,5 +8,38 @@
 
   @media (--large-screen) {
     width: 60%;
+  }
+}
+
+.form--inline {
+  @media (--medium-screen) {
+    display: flex;
+  }
+}
+
+.form--inline .input {
+  @media (--medium-screen) {
+    margin: 0;
+  }
+}
+
+.form--inline .input__field {
+  @media (--medium-screen) {
+    padding: 16px;
+  }
+}
+
+.form--inline .button {
+  @media (--medium-screen) {
+    background: var(--gray-x-light);
+    border: solid 1px var(--gray-x-light);
+    border-left: 0;
+    transform: translateX(-2px);
+  }
+}
+
+.form--inline .button:hover {
+  @media (--medium-screen) {
+    background: var(--blue);
   }
 }

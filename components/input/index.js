@@ -1,17 +1,13 @@
 import $ from 'jquery'
 
 $(function() {
-  const ui = {
-    field: $('[data-input-field]')
-  }
-
-  ui.field
-    .on('focus', function() {
+  $('body')
+    .on('focus', '[data-input-field]', function() {
       $(this)
         .parent('[data-input]')
         .addClass('is-active')
     })
-    .on('blur', function() {
+    .on('blur', '[data-input-field]', function() {
       const $this = $(this)
 
       if (!$this.val().length) {

@@ -18,7 +18,7 @@ return [
 
       // add tag filter
       if ($tagParam) {
-        $criteria['relatedTo'] = \craft\elements\Tag::find()->search($tagParam)->first();
+        $criteria['relatedTo'] = \craft\elements\Tag::find()->search($tagParam)->one();
       }
 
       // add search filter

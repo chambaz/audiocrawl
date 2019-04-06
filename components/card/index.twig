@@ -1,6 +1,6 @@
 <article class="grid__item card" data-card="{% if cardData is defined %}{{ cardData|json_encode() }}{% endif %}">
   <a {% if data is defined %}href="{{ data.url }}/"{% endif %} data-card-image>
-    <img class="card__img" {% if data is defined %}src="{{ data.image.first().url }}" alt="{{  data.title }}"{% endif %} />
+    <img class="card__img" {% if data is defined %}src="{{ data.image.one().url }}" alt="{{  data.title }}"{% endif %} />
   </a>
   <div class="card__info">
     <h3 class="card__title">

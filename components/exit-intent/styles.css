@@ -1,0 +1,86 @@
+.exit-intent {
+  -webkit-overflow-scrolling: touch;
+  align-items: center;
+  background: rgba(242, 245, 248, 0.8);
+  display: none;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  transition: 0.3s;
+  width: 100vw;
+  z-index: 2;
+
+  @media (--medium-screen) {
+    padding: 40px;
+  }
+}
+
+.exit-intent__content {
+  background: var(--white);
+  box-shadow: 0px 39px 64px 0px rgba(25, 38, 45, 0.22);
+  display: none;
+  height: 100vh;
+  margin: 0 auto;
+  max-width: 1180px;
+  opacity: 0;
+  padding: 40px;
+  position: relative;
+  transition: 0.3s;
+  width: 100%;
+  z-index: 2;
+
+  @media (--medium-screen) {
+    height: auto;
+    padding: 50px 70px;
+  }
+}
+
+.exit-intent.is-active {
+  display: block;
+
+  @media (--medium-screen) {
+    display: flex;
+  }
+}
+
+.exit-intent.is-active .exit-intent__content {
+  display: block;
+}
+
+.exit-intent.is-visible,
+.exit-intent.is-visible .exit-intent__content {
+  opacity: 1;
+}
+
+.exit-intent__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: block;
+}
+
+.exit-intent__close-icon {
+  fill: var(--gray-light);
+  transition: 0.3s;
+}
+
+.exit-intent__close:hover .exit-intent__close-icon {
+  fill: var(--blue);
+  transform: scale(1.05);
+}
+
+.exit-intent__title {
+  color: var(--blue-dark);
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.exit-intent__body {
+  line-height: 1.7;
+  margin-top: 30px;
+  padding-right: 40px;
+}
