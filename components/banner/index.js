@@ -1,11 +1,17 @@
+import $ from 'jquery'
+
 const ui = {
-  banner: document.querySelector('[data-banner]')
+  banner: $('[data-banner]')
 }
 
 setTimeout(() => {
-  ui.banner.classList.add('banner--visible')
+  ui.banner.addClass('banner--visible')
 }, 10000)
 
 setTimeout(() => {
-  ui.banner.classList.remove('banner--visible')
+  ui.banner.removeClass('banner--visible')
 }, 25000)
+
+$(window).on('scroll', () => {
+  console.log($(window).scrollTop)
+})

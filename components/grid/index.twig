@@ -1,7 +1,7 @@
 <div class="listing">
   <section class="listing__grid grid" data-grid {% if pagination is defined %}data-grid-pagination="{{ pagination|json_encode() }}"{% endif %}>
     {% if cards is defined %}
-      {% for card in cards %}
+      {% for card in cards.all() %}
         {# build array of tag slugs #}
         {% set tags = [] %}
         {% for tag in card.tags.all() %}
@@ -17,7 +17,7 @@
               machine: card.date|date('Y-M-D')
             },
             originalUrl: card.originalUrl,
-            image: card.image.first().getUrl('crawlsTransform'), 
+            image: card.image.one().getUrl('crawlsTransform'), 
             description: card.description,
             tags: tags
           },
@@ -27,7 +27,7 @@
     {% endif %}
   </section>
 
-  {% if cards is defined and cards.total() > 18 %}
+  {% if cards is defined and cards.count() > 18 %}
   <a 
     class="listing__load-more button button--secondary button--large" 
     data-load-more 

@@ -1,4 +1,4 @@
-{% set page = craft.request.firstSegment %}
+{% set page = craft.app.request.segments|first %}
 
 <nav class="layout__sidebar-nav nav">
   <ul class="nav__list">

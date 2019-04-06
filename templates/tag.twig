@@ -3,12 +3,12 @@
 {% block content %}
   {% include '_components/search/index.twig' %}
 
-  {% set tag = craft.tags.search(craft.request.lastSegment).first() %}
+  {% set tag = craft.tags.search(craft.app.request.segments|last).one() %}
 
   <div class="page">
     {% if tag %}
       <h1 class="page__heading page__heading--margin">
-        Crawls tagged <span class="page__heading--italic">"{{tag}}"</span>
+        Crawls tagged <span class="page__heading--italic">"{{ tag }}"</span>
       </h1>
       {% include '_components/grid/index.twig' with {
         cards: craft.entries.section('crawls').relatedTo(tag).limit(18),

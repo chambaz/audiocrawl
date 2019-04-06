@@ -3,20 +3,22 @@
 {% block content %}
   {% include '_components/search/index.twig' %}
 
+  {% set q = craft.app.request.getQueryParam('q') %}
+
   {% set crawls = craft.entries.section('crawls')
-    .search(craft.request.getQuery('q'))
+    .search(q)
     .limit(18)
   %}
 
   <div class="page">
     {% if crawls|length > 0 %}
       <h1 class="page__heading page__heading--margin">
-        Searching for <span class="page__heading--italic">"{{craft.request.getQuery('q')}}"</span>
+        Searching for <span class="page__heading--italic">"{{ q }}"</span>
       </h1>
       {% include '_components/grid/index.twig' with {
         cards: crawls,
         pagination: {
-          search: craft.request.getQuery('q')
+          search: q
         }
       } %}
     {% else %}
