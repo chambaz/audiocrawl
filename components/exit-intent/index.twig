@@ -5,14 +5,26 @@
         <path d="M14.7,1.3c-0.4-0.4-1-0.4-1.4,0L8,6.6L2.7,1.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4L6.6,8l-5.3,5.3 c-0.4,0.4-0.4,1,0,1.4C1.5,14.9,1.7,15,2,15s0.5-0.1,0.7-0.3L8,9.4l5.3,5.3c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L9.4,8l5.3-5.3C15.1,2.3,15.1,1.7,14.7,1.3z"/>
       </svg>
     </a>
+    <svg class="exit-intent__logo" width="420px" height="284px" viewBox="0 0 420 164" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <title>AudioCrawl</title>
+      <defs>
+        <linearGradient x1="0%" y1="49.9837617%" x2="100%" y2="49.9837617%" id="linearGradient-1">
+          <stop stop-color="#01C0F3" offset="0%"></stop>
+          <stop stop-color="#3D8BE4" offset="100%"></stop>
+        </linearGradient>
+      </defs>
+      <path class="logo__line" data-logo-line fill="none" d="M12,47.2256452 C46.1462269,22.5947127 79.6761189,10.2792464 112.589676,10.2792464 C145.503234,10.2792464 177.650874,22.5947127 209.032596,47.2256452 C244.440826,73.7418817 278.926705,87 312.490235,87 C346.053764,87 381.223686,73.7418817 418,47.2256452" id="Line" stroke="#1DA7EC" stroke-width="10" stroke-linecap="square"></path>
+    </svg>
     <h2 class="exit-intent__title">AudioCrawl Monthly</h2>
     <p class="exit-intent__body">
       Sign up for the AudioCrawl newsletter and receive our round-up of the 
       best in WebAudio straight to your inbox once a month. Only 
       best-in-class WebAudio, we don't spam!
     </p>
-    {% include '_components/newsletter/index.twig' with {
-      inline: true
-    } %}
+    <div class="exit-intent__form">
+      {% include '_components/newsletter/index.twig' with {
+        inline: true
+      } %}
+    </div>
   </div>
 </div>
