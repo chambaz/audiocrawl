@@ -25,10 +25,11 @@
   display: none;
   height: 100vh;
   margin: 0 auto;
-  max-width: 1180px;
+  max-width: 930px;
   opacity: 0;
   padding: 40px;
   position: relative;
+  text-align: center;
   transition: 0.3s;
   width: 100%;
   z-index: 2;
@@ -73,6 +74,10 @@
   transform: scale(1.05);
 }
 
+.exit-intent__logo {
+  height: 52px;
+}
+
 .exit-intent__title {
   color: var(--blue-dark);
   font-size: 30px;
@@ -83,4 +88,9 @@
   line-height: 1.7;
   margin-top: 30px;
   padding-right: 40px;
+}
+
+.exit-intent__form {
+  display: flex;
+  justify-content: center;
 }
